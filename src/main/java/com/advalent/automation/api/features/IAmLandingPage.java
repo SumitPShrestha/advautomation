@@ -1,0 +1,18 @@
+package com.advalent.automation.api.features;
+
+import com.advalent.automation.api.pages.common.IAdvalentPage;
+
+public interface IAmLandingPage extends IAdvalentPage {
+
+    /**
+     * Represents a Advalent landing page.
+     * <p/>
+     * Landing page :
+     * <li>directly navigable from top nav bar,</li>
+     *
+     * @author sshrestha
+     */
+    String getPageUrl();
+
+    String getPageTitle();
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="subro-point-testsuite">
+<!--<suite name="subro-point-testsuite" parallel="instances" thread-count="1">-->
+ <!--   <listeners>
+        <listener class-name="com.advalent.automation.reporting.ExtentTestManager"/>
+    </listeners>-->
+    <test name="subro-point-testsuite" preserve-order="true">
+        <classes>
+            <!--<class name="com.advalent.automation.test.subropoint.LoginPageTest"/>-->
+            <class name="com.advalent.automation.test.subropoint.search.globalsearch.GlobasSearchPageTest"/>
+        </classes>
+    </test>
+</suite>
