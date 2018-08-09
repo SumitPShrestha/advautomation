@@ -16,4 +16,6 @@ public interface IDataGrid {
     boolean isFullyLoaded();
 
      IDataGrid waitTillDataIsCleared(int waitTimeInSecs);
+
+    void clickOnFirstRow();
 }

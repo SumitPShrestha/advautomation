@@ -1,4 +1,4 @@
-package com.advalent.automation.impl.pages.search.globarsearch;
+package com.advalent.automation.impl.pages.search.globalsearch;
 
 import com.advalent.automation.api.components.tab.ITab;
 import com.advalent.automation.components.webelement.WebElements;

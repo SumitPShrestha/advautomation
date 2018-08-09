@@ -1,16 +1,13 @@
-package com.advalent.automation.impl.pages.search.globarsearch;
+package com.advalent.automation.impl.pages.search.globalsearch;
 
 import com.advalent.automation.api.annotations.LogStep;
 import com.advalent.automation.api.components.tab.ITab;
 import com.advalent.automation.api.components.tab.ITabPanel;
 import com.advalent.automation.api.constants.TimeOuts;
 import com.advalent.automation.api.features.IAmLandingPage;
-import com.advalent.automation.components.webelement.WebElements;
 import com.advalent.automation.impl.pages.common.AdvalentPage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 

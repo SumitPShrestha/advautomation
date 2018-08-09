@@ -41,7 +41,7 @@ public abstract class AbstractSearchTest extends BaseTest {
      * @return list of values to be entered in input element in search page
      *
      * */
-    protected abstract List<String> getInpuValueList();
+    protected abstract List<String> getInputValueList();
     /**
      * Method to return the ssearch page on which test is to be performed
      * @return list of values to be entered in input element in search page
@@ -66,7 +66,7 @@ public abstract class AbstractSearchTest extends BaseTest {
 
 
     @AfterMethod
-    public void resetSeach() {
+    public void resetSearch() {
         getSearchPage().clearSearch().waitTillDataIsCleared(waitTime);
     }
 

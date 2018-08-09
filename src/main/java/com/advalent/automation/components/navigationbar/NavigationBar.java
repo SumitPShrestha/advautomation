@@ -57,7 +57,8 @@ public class NavigationBar extends AbstractWebComponent {
     }
 
     private void clickOnPageLinkAndWaitTillFullyLoaded(IAmLandingPage landPageInstance, Integer waitTime) {
-        Module module = ModuleInfo.INSTANCE.getModuleByPageTitle(landPageInstance.getPageTitle());
+        Module module = ModuleInfo.INSTANCE.getModuleByPageTitle(landPageInstance.
+                getPageTitle());
         if (module.hasParent())
             expandNavMenu(module.getParent());
         String moduleId = module.getName();

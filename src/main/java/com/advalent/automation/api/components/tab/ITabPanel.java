@@ -1,8 +1,5 @@
 package com.advalent.automation.api.components.tab;
 
-import com.advalent.automation.api.constants.TimeOuts;
-import com.advalent.automation.impl.pages.search.globarsearch.EventIncidentSearchTab;
-
 import java.util.List;
 
 public interface ITabPanel {

@@ -55,6 +55,15 @@ public class DataGrid extends AbstractWebComponent implements IDataGrid {
         return this;
     }
 
+    @Override
+    public void clickOnFirstRow() {
+        clickOnRow(1);
+    }
+
+    private void clickOnRow(int rowIndex) {
+        getDriver().findElement(By.xpath(this.locator + "/tbody/tr[" + rowIndex + "]")).click();
+    }
+
 
     public List<List<String>> getTableData() {
         WebElement table = getDriver().findElement(By.xpath(this.locator));

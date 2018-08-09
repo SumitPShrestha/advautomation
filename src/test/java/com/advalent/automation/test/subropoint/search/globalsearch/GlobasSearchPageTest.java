@@ -4,14 +4,10 @@ import com.advalent.automation.api.components.datagrid.IDataGrid;
 import com.advalent.automation.api.constants.TimeOuts;
 import com.advalent.automation.components.inputelements.InputElement;
 import com.advalent.automation.impl.pages.common.AbstractSearchPage;
-import com.advalent.automation.impl.pages.search.globarsearch.EventIncidentSearchTab;
-import com.advalent.automation.impl.pages.search.globarsearch.GlobalSearchPage;
-import com.advalent.automation.test.base.BaseTest;
+import com.advalent.automation.impl.pages.search.globalsearch.EventIncidentSearchTab;
+import com.advalent.automation.impl.pages.search.globalsearch.GlobalSearchPage;
 import com.advalent.automation.test.common.AbstractSearchTest;
-import com.advalent.automation.test.testinputs.DataProviderUtils;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.util.Arrays;
@@ -42,7 +38,7 @@ public class GlobasSearchPageTest extends AbstractSearchTest {
         eventIncidentSearchTab = (EventIncidentSearchTab) globalSearchPage.getDefaultTab();
         searchPage = getSearchPage();
         inputElements = getInputElementList();
-        inpuValueList = getInpuValueList();
+        inpuValueList = getInputValueList();
     }
 
 
@@ -52,7 +48,7 @@ public class GlobasSearchPageTest extends AbstractSearchTest {
         eventIncidentTabDataGrid = eventIncidentSearchTab.getDataGrid();
         String tabTitle = eventIncidentSearchTab.getDisplayedTabTitle();
         String expectedTabTitle = eventIncidentSearchTab.getTabName();
-        assertThat(tabTitle).contains(expectedTabTitle).as("Panel Title Should Be Dlayed");
+        assertThat(tabTitle).contains(expectedTabTitle).as("Panel Title Should Be Displayed");
     }
 /*
 
@@ -90,7 +86,7 @@ public class GlobasSearchPageTest extends AbstractSearchTest {
     }
 
     @Override
-    public List<String> getInpuValueList() {
+    public List<String> getInputValueList() {
         return Arrays.asList("56824", "United Health Group");
 
     }

@@ -1,4 +1,4 @@
-package com.advalent.automation.impl.pages.search.globarsearch;
+package com.advalent.automation.impl.pages.search.globalsearch;
 
 import com.advalent.automation.api.annotations.LogStep;
 import com.advalent.automation.api.annotations.inputfield.CustomElement;
@@ -6,16 +6,13 @@ import com.advalent.automation.api.components.datagrid.IDataGrid;
 import com.advalent.automation.api.components.tab.ITab;
 import com.advalent.automation.components.inputelements.DropDown;
 import com.advalent.automation.components.inputelements.TextBox;
-import com.advalent.automation.components.webelement.WebElements;
 import com.advalent.automation.impl.component.datagrid.DataGrid;
 import com.advalent.automation.impl.pages.common.AbstractSearchPage;
-import com.advalent.automation.impl.pages.common.AbstractWebComponent;
+import com.advalent.automation.impl.pages.search.globalsearch.viewevent.ViewEventPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-import javax.swing.text.Document;
 
 public class EventIncidentSearchTab extends AbstractSearchPage implements ITab {
 
@@ -112,5 +109,8 @@ public class EventIncidentSearchTab extends AbstractSearchPage implements ITab {
     }
 
 
-
+    public ViewEventPage clickOnFirstRowOfDataGrid() {
+        getDataGrid().clickOnFirstRow();
+        return new ViewEventPage(getDriver());
+    }
 }
