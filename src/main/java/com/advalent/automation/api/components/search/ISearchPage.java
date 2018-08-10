@@ -14,4 +14,7 @@ public interface ISearchPage {
     IDataGrid getDataGrid();
 
     <T> T clickOnAddButton();
+
+    IDataGrid clickOnOkOfWarning();
+    IDataGrid clickOnCancelOfWarning();
 }

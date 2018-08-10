@@ -2,6 +2,7 @@ package com.advalent.automation.components.inputelements;
 
 import com.advalent.automation.api.annotations.inputfield.validation.Validation;
 import com.advalent.automation.api.components.inputelements.validations.IHaveValidations;
+import com.advalent.automation.api.exceptions.AutomationException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
@@ -11,18 +12,7 @@ public class DropDown extends InputElement implements IHaveValidations {
     }
 
 
-    public DropDown selectOption(String option) {
-        Select dropdown = new Select(this.element);
-        dropdown.selectByVisibleText(option);
-        return this;
-    }
 
-
-    public DropDown unSelectOption() {
-        Select dropdown = new Select(this.element);
-        dropdown.deselectAll();
-        return this;
-    }
 
 
     @Override
@@ -34,12 +24,14 @@ public class DropDown extends InputElement implements IHaveValidations {
 
     @Override
     public String getInputFieldValidationMessage(String input) {
-        return null;
+        throw new AutomationException("method not implemented for DropDown");
+
     }
 
     @Override
     public String getRequiredFieldValidationMessage(String input) {
-        return null;
+        throw new AutomationException("method not implemented for DropDown");
+
     }
 
     public boolean isFullyLoaded() {

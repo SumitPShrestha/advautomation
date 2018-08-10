@@ -2,14 +2,13 @@ package com.advalent.automation.components.inputelements;
 
 import com.advalent.automation.api.components.inputelements.validations.IHaveValidations;
 import com.advalent.automation.api.annotations.inputfield.validation.Validation;
+import com.advalent.automation.api.exceptions.AutomationException;
 import org.openqa.selenium.WebDriver;
 
 public class TextBox extends InputElement implements IHaveValidations {
     public TextBox(WebDriver driver, String locator) {
         super(driver, locator);
     }
-
-
 
 
     @Override
@@ -31,5 +30,15 @@ public class TextBox extends InputElement implements IHaveValidations {
 
     public boolean isFullyLoaded() {
         return false;
+    }
+
+    @Override
+    public InputElement selectOption(String option) {
+        throw new AutomationException("method not implemented for TextBox");
+    }
+
+    @Override
+    public InputElement unSelectOption() {
+        throw new AutomationException("method not implemented for TextBox");
     }
 }

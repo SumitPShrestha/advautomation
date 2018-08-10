@@ -5,6 +5,7 @@ import com.advalent.automation.api.components.loadingcomponent.ILoadingComponent
 import com.advalent.automation.api.constants.TimeOuts;
 import com.advalent.automation.components.webelement.WebElements;
 import com.advalent.automation.impl.pages.common.AbstractWebComponent;
+import com.advalent.automation.impl.utils.WaitUtils;
 import com.google.common.base.Predicate;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
@@ -43,15 +44,9 @@ public class DataGrid extends AbstractWebComponent implements IDataGrid {
     }
 
     public IDataGrid waitTillDataIsCleared(int waitTimeInSecs) {
-        logger.info("Waiting for __{}__ loading ...", this.getClass()
+        logger.info("Waiting for __{}__ data to be cleared ...", this.getClass()
                 .getSimpleName());
-        new WebDriverWait(getDriver(), waitTimeInSecs).ignoring(NoSuchElementException.class).ignoring(StaleElementReferenceException.class).ignoring(WebDriverException.class)
-                .until(new Predicate<WebDriver>() {
-                    @Override
-                    public boolean apply(WebDriver arg0) {
-                        return !arg0.findElement(By.xpath("//dloadingicon")).isDisplayed();
-                    }
-                });
+        WaitUtils.waitForSeconds(waitTimeInSecs);
         return this;
     }
 

@@ -3,6 +3,9 @@ package com.advalent.automation.aspects;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -11,6 +14,9 @@ import java.util.concurrent.TimeUnit;
  * @author sshrestha
  */
 public class AspectUtils {
+
+    private static SimpleDateFormat FORMATTER = new SimpleDateFormat("hh:mm:ss");
+
 
     static String getClassAndMethodName(JoinPoint joinPoint) {
         if (joinPoint.getTarget() != null) {
@@ -42,8 +48,23 @@ public class AspectUtils {
         return sb.toString();
     }
 
-    static String getTimeTaken(Long startTime) {
-        Long timeTakenMillis = System.currentTimeMillis() - startTime;
-        return timeTakenMillis + " milliseconds";
+    static String getTimeTaken(String startTime, String endTime) {
+        Date d1 = null;
+        Date d2 = null;
+        try {
+            d1 = FORMATTER.parse(startTime);
+            d2 = FORMATTER.parse(endTime);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        long diff = d2.getTime() - d1.getTime();
+        long diffSeconds = diff / 1000 % 60;
+        long diffMinutes = diff / (60 * 1000) % 60;
+        long diffHours = diff / (60 * 60 * 1000) % 24;
+        return diffHours + ":" + diffMinutes + ":" + diffSeconds;
+    }
+
+    public static String getCurrentTime() {
+        return FORMATTER.format(new Date());
     }
 }

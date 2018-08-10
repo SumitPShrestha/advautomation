@@ -15,6 +15,7 @@ public class TimeOuts {
     public static final int FIFTEEN_MINUTES = 900;
     public static final int TWENTY_MINUTES = 1200;
     public static final int THIRTY_MINUTES = 1800;
+    public static final int THREE_SECONDS = 3;
 
 
     private TimeOuts() {

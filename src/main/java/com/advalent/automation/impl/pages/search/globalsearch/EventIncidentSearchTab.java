@@ -4,7 +4,9 @@ import com.advalent.automation.api.annotations.LogStep;
 import com.advalent.automation.api.annotations.inputfield.CustomElement;
 import com.advalent.automation.api.components.datagrid.IDataGrid;
 import com.advalent.automation.api.components.tab.ITab;
+import com.advalent.automation.components.inputelements.AutoSuggest;
 import com.advalent.automation.components.inputelements.DropDown;
+import com.advalent.automation.components.inputelements.MultipleAutoComplete;
 import com.advalent.automation.components.inputelements.TextBox;
 import com.advalent.automation.impl.component.datagrid.DataGrid;
 import com.advalent.automation.impl.pages.common.AbstractSearchPage;
@@ -18,8 +20,28 @@ public class EventIncidentSearchTab extends AbstractSearchPage implements ITab {
 
     @CustomElement(xpath = "//*[@id=\"EventID\"]")
     public TextBox eventId;
+    @CustomElement(xpath = "//*[@id=\"FirstName\"]")
+    public TextBox patientFirstName;
+    @CustomElement(xpath = "//*[@id=\"LastName\"]")
+    public TextBox patientLastName;
+    @CustomElement(xpath = "//*[@id=\"IncidentId\"]")
+    public TextBox incidentId;
+    @CustomElement(xpath = "//*[@id=\"PatientId\"]")
+    public TextBox patientId;
+    @CustomElement(xpath = "//*[@id=\"PatientDOB\"]")
+    public TextBox patientDOB;
     @CustomElement(xpath = "//*[@id=\"MajorClient\"]")
     public DropDown majorClient;
+    @CustomElement(xpath = "//*[@id=\"EventOwnerName\"]")
+    public AutoSuggest eventOwner;
+    @CustomElement(xpath = "//*[@id=\"ClientList\"]")
+    public MultipleAutoComplete client;
+    @CustomElement(xpath = "//*[@id=\"EventStatusList\"]")
+    public MultipleAutoComplete eventStatus;
+    @CustomElement(xpath = "//*[@id=\"EmployerGroupList\"]")
+    public MultipleAutoComplete employerGroup;
+
+
     @FindBy(xpath = "//*[@id=\"content\"]/div[3]/div/form/div/div/ul/li[1]/a/tab-heading/span")
     public WebElement tabTitle;
     @FindBy(xpath = "//*[@id=\"content\"]/div[3]/div/form/div/div/div/div[1]/ng-include/div/div/form/div")
@@ -32,7 +54,6 @@ public class EventIncidentSearchTab extends AbstractSearchPage implements ITab {
     WebElement addIncidentreportBtn;
     @FindBy(xpath = "//*[@id=\"addNewClient\"]")
     WebElement addManualEventBtn;
-
 
     IDataGrid dataGrid;
 
@@ -94,7 +115,7 @@ public class EventIncidentSearchTab extends AbstractSearchPage implements ITab {
     }
 
 
-    @LogStep(step = "Enter Evemt Id")
+    @LogStep(step = "Enter Event Id")
     public EventIncidentSearchTab enterEventId(String eventId) {
         logger.info("Entering Event Id , Value:{}", eventId);
         this.eventId.clearValue().enterValue(eventId);
@@ -108,7 +129,63 @@ public class EventIncidentSearchTab extends AbstractSearchPage implements ITab {
         return this;
     }
 
+    @LogStep(step = "Entering Event Owner")
+    public EventIncidentSearchTab enterEventOwner(String eventOwnerName) {
+        this.eventOwner.enterValue(eventOwnerName);
+        return this;
+    }
 
+    @LogStep(step = "Entering Client")
+    public EventIncidentSearchTab enterClient(String clientName) {
+        this.client.enterValue(clientName);
+        return this;
+    }
+
+    @LogStep(step = "Entering Event Status")
+    public EventIncidentSearchTab enterEventStatus(String eventStatus) {
+        this.eventStatus.enterValue(eventStatus);
+        return this;
+    }
+
+
+    @LogStep(step = "Entering Employer Group")
+    public EventIncidentSearchTab enterEmployerGroup(String employerGroup) {
+        this.employerGroup.enterValue(employerGroup);
+        return this;
+    }
+
+    @LogStep(step = "Entering Patient First Name")
+    public EventIncidentSearchTab enterPatientFirstName(String patientFirstName) {
+        this.patientFirstName.enterValue(patientFirstName);
+        return this;
+    }
+
+    @LogStep(step = "Entering Patient Last Name")
+    public EventIncidentSearchTab enterPatientLastName(String patientLastName) {
+        this.patientLastName.enterValue(patientLastName);
+        return this;
+    }
+
+    @LogStep(step = "Entering Incident Id")
+    public EventIncidentSearchTab enterIncidentId(String incidentId) {
+        this.incidentId.enterValue(incidentId);
+        return this;
+    }
+
+    @LogStep(step = "Entering Patient Id")
+    public EventIncidentSearchTab enterPatientId(String patientId) {
+        this.patientId.enterValue(patientId);
+        return this;
+    }
+
+    @LogStep(step = "Entering Patient Id")
+    public EventIncidentSearchTab enterPatientDob(String patientDOB) {
+        this.patientDOB.enterValue(patientDOB);
+        return this;
+    }
+
+
+    @LogStep(step = "Clicking On First Rpw Of DataGrid")
     public ViewEventPage clickOnFirstRowOfDataGrid() {
         getDataGrid().clickOnFirstRow();
         return new ViewEventPage(getDriver());

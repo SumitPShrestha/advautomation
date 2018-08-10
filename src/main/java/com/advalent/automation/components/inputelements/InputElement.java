@@ -4,6 +4,7 @@ import com.advalent.automation.impl.pages.common.AbstractWebComponent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public abstract class InputElement extends AbstractWebComponent {
     WebElement element;
@@ -16,13 +17,13 @@ public abstract class InputElement extends AbstractWebComponent {
     }
 
 
-
     public InputElement enterValue(String value) {
         element.sendKeys(value);
         return this;
     }
 
     ;
+
     public InputElement clearValue() {
         element.clear();
         return this;
@@ -32,6 +33,17 @@ public abstract class InputElement extends AbstractWebComponent {
         return element.getText();
     }
 
-    ;;
+    public InputElement selectOption(String option) {
+        Select dropdown = new Select(this.element);
+        dropdown.selectByVisibleText(option);
+        return (DropDown) this;
+    }
+
+
+    public InputElement unSelectOption() {
+        Select dropdown = new Select(this.element);
+        dropdown.deselectAll();
+        return this;
+    }
 
 }

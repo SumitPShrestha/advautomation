@@ -55,15 +55,14 @@ public abstract class AbstractSearchTest extends BaseTest {
         super.setUp();
 
     }
-
-    @Test(description = "Search Test", dataProvider = "availableInputProvider")
+    /*@Test(description = "Search Test", dataProvider = "availableInputProvider")
     public void searchByAvailableInputs(InputElement inputElement, String value) {
         initialTableValue = searchPage.getDataGrid().getTableDataAsString();
         searchPage.searchBy(inputElement, value, waitTime);
         tableValueAfterSearch = searchPage.getDataGrid().getTableDataAsString();
         assertThat(initialTableValue).isNotEqualTo(tableValueAfterSearch).as("Table Data should not be same after search");
     }
-
+*/
 
     @AfterMethod
     public void resetSearch() {

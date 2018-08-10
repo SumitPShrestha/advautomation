@@ -48,7 +48,7 @@ public class EventBanner extends AbstractWebComponent {
     public String getDisplayedEventOwner() {return eventOwner.getText();}
     public String getDisplayedLastUpdated() {return lastUpdated.getText();}
 
-    //ToDo taskTab Page Object
+   /* //ToDo taskTab Page Object
     @LogStep(step = "Clicking On Add Task Button")
     public TaskTab clickOnAddTaskBtn(){
         addTaskBtn.click();
@@ -61,7 +61,7 @@ public class EventBanner extends AbstractWebComponent {
         viewIncludedClaimsBtn.click();
         return new IncludedClaimsDetailsPage(getDriver());
     }
-
+*/
     @Override
     public boolean isFullyLoaded() {
         return false;

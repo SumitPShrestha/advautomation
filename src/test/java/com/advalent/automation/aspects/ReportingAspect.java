@@ -1,8 +1,9 @@
+/*
 package com.advalent.automation.aspects;
 
 import com.advalent.automation.api.annotations.LogStep;
 import com.advalent.automation.impl.utils.ReflectionUtils;
-import com.advalent.automation.reporting.ExtentManager;
+import com.advalent.automation.reporting.ExtentHTMLReportManager;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
@@ -21,12 +22,14 @@ import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+*/
 /**
  * This class is used to create, initiaize and destroy the test report object.
  * beside it is also used to log the test step, test status, error etc. using AOP.
  * <p>
  * author: sshrestha
- */
+ *//*
+
 @Aspect
 @ThreadSafe
 public class ReportingAspect {
@@ -39,39 +42,45 @@ public class ReportingAspect {
     ExtentTest child;
     ExtentTest parent;
 
-    /*
+    */
+/*
      * Pointcut to method that is annotated with {@link @LogStep}
-     * */
+     * *//*
+
     @Pointcut("execution(@(com.advalent..LogStep) * *.*(..))")
     public void logAnnotatedStep() {
 
     }
 
-    /**
+    */
+/**
      * Advice that runs before execution method that is annotated with {@link @BeforeSuite}
      * in test class.
      * this method iniialize the extent report and attach HTML Report to extent report
      *
      * @param thisJoinPoint
      * @return
-     */
+     *//*
+
     @Before("execution(@(org.testng.annotations.BeforeSuite) * *.*(..))")
     public void beforeSuitAdvice(JoinPoint thisJoinPoint) {
 //        logger.info("BuildNo: {} JobId: {}", System.getProperty("buildNo", "N/A"), System.getProperty("jobId", "N/A"));
 
-        extent = ExtentManager.createInstance("extent.html");
+        extent = ExtentHTMLReportManager.createInstance("extent.html");
         ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter("extent.html");
         extent.attachReporter(htmlReporter);
     }
 
-    /**
+    */
+/**
      * Advice that runs before execution method that is annotated with {@link @BeforeClass}
      * in test class.
      * this method creates test in extent test report and logs the details of test class
      *
      * @param thisJoinPoint
      * @return
-     */
+     *//*
+
     @Before("execution(@(org.testng.annotations.BeforeClass) * *.*(..))")
     public synchronized void beforeClassAdvice(JoinPoint thisJoinPoint) {
         Class testClass = thisJoinPoint.getTarget().getClass();
@@ -83,27 +92,33 @@ public class ReportingAspect {
         parentTest.set(parent);
     }
 
-    /**
+    */
+/**
      * Advice that runs before execution of test method(method that is annotated with {@link @BeforeMethod})
      * in test class.
      * initializes test object and and sets it to testclass object
      *
      * @param thisJoinPoint
      * @return
-     */
+     *//*
+
 
     @Before("execution(@(org.testng.annotations.BeforeMethod) * *.*(..))")
     public synchronized void beforeMethod(JoinPoint thisJoinPoint) {
-       /* test = ((ExtentTest) parentTest.get()).createNode(((MethodSignature) thisJoinPoint.getSignature()).getMethod().getName());
-        test.set(test);*/
+       */
+/* test = ((ExtentTest) parentTest.get()).createNode(((MethodSignature) thisJoinPoint.getSignature()).getMethod().getName());
+        test.set(test);*//*
+
     }
-    /**
+    */
+/**
      * Advice that runs before execution of test method(method that is annotated with {@link @AfterMethod})
      * in test class.
      *
      * @param thisJoinPoint
      * @return
-     */
+     *//*
+
 
     @Before("execution(@(org.testng.annotations.AfterMethod) * *.*(..))")
     public synchronized void afterMethod(JoinPoint thisJoinPoint) {
@@ -113,13 +128,15 @@ public class ReportingAspect {
         test.set(child);
 
     }
-    /**
+    */
+/**
      * Advice that runs before execution of test method(method that is annotated with {@link @Test})
      * in test class.
      *initializes test object and and sets it to testclass object
      * @param thisJoinPoint
      * @return
-     */
+     *//*
+
     @Before("execution(@(org.testng.annotations.Test) * *.*(..))")
     public synchronized void testAdvice(JoinPoint thisJoinPoint) {
         String testDescription = ((MethodSignature) thisJoinPoint.getSignature()).getMethod().getAnnotation(Test.class).description();
@@ -127,14 +144,16 @@ public class ReportingAspect {
         test.set(child);
     }
 
-    /**
+    */
+/**
      * Advice that runs after the exception is thrown by test method (method that is annotated with {@link @Test})
      * in test class.
      * logs if the test is skipped or failed in test report
      *
      * @param thisJoinPoint
      * @return
-     */
+     *//*
+
     @AfterThrowing(value = "execution(@(org.testng.annotations.Test) * *.*(..))", throwing = "exception")
     public synchronized void testAdvice(JoinPoint thisJoinPoint, Throwable exception) {
         try {
@@ -150,13 +169,15 @@ public class ReportingAspect {
 
     }
 
-    /**
+    */
+/**
      * Advice that runs before method that is annotated with {@link @LogStep}
      * this method logs the step and parameter that is specified in {@link @LogStep} annotation
      *
      * @param thisJoinPoint
      * @return
-     */
+     *//*
+
     @Before("logAnnotatedStep()")
     public void tet(JoinPoint thisJoinPoint) {
         Method method = ((MethodSignature) thisJoinPoint.getSignature()).getMethod();
@@ -181,28 +202,32 @@ public class ReportingAspect {
     }
 
 
-    /**
+    */
+/**
      * Advice that runs after the exception is thrown by method that is annotated with {@link @LogStep}
      * in test class.
      * logs message of exception in test report
      *
      * @param thisJoinPoint
      * @return
-     */
+     *//*
+
     @AfterThrowing(value = "logAnnotatedStep()", throwing = "exception")
     public synchronized void errorInStepAdvice(JoinPoint thisJoinPoint, Throwable exception) {
         ExtentTest testToLog = (ExtentTest) (test.get() == null ? parentTest.get() : test.get());
         testToLog.error(exception.getLocalizedMessage());
     }
 
-    /**
+    */
+/**
      * Advice that runs after complition of execution of method annotated with {@link @AfterMethod}
      * in test class.
      * flushes the test object
      *
      * @param thisJoinPoint
      * @return
-     */
+     *//*
+
     @AfterReturning("execution(@(org.testng.annotations.AfterMethod) * *.*(..))")
     public synchronized void afterMethodAdvice(JoinPoint thisJoinPoint) {
 
@@ -211,3 +236,4 @@ public class ReportingAspect {
 
 
 }
+*/
