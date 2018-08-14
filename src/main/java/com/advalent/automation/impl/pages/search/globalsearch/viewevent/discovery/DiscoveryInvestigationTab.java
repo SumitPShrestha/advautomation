@@ -6,7 +6,7 @@ import com.advalent.automation.api.components.tab.ITab;
 import com.advalent.automation.components.inputelements.DropDown;
 import com.advalent.automation.components.inputelements.TextBox;
 import com.advalent.automation.impl.pages.common.AdvalentPage;
-import com.advalent.automation.impl.pages.search.globalsearch.viewevent.OverviewTab;
+import com.advalent.automation.impl.pages.search.globalsearch.viewevent.overviewtab.OverviewTab;
 import javafx.scene.control.CheckBox;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -99,13 +99,11 @@ public class DiscoveryInvestigationTab extends AdvalentPage implements ITab {
     }
 
 
-    //ToDo EventCaseViewPage Page Object
     @LogStep(step = "Clicking On Switch To Event/Case View Button")
     public OverviewTab clickOnSwitchToEventCaseViewBtn() {
         switchToEventCaseViewBtn.click();
         return new OverviewTab(getDriver());
     }
-
 
     @Override
     public String getTabName() {

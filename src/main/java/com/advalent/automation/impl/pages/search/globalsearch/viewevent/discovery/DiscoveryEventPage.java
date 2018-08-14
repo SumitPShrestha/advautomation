@@ -7,7 +7,7 @@ import com.advalent.automation.api.components.tab.ITabPanel;
 import com.advalent.automation.components.inputelements.DropDown;
 import com.advalent.automation.components.inputelements.TextBox;
 import com.advalent.automation.impl.pages.common.AdvalentPage;
-import com.advalent.automation.impl.pages.search.globalsearch.viewevent.OverviewTab;
+import com.advalent.automation.impl.pages.search.globalsearch.viewevent.overviewtab.OverviewTab;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

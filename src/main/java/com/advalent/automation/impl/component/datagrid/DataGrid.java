@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class DataGrid extends AbstractWebComponent implements IDataGrid {
-    private final String locator;
+    protected final String locator;
 
     public DataGrid(WebDriver driver, String locator) {
         super(driver);

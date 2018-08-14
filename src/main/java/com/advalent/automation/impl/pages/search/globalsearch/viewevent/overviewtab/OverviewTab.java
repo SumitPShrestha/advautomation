@@ -1,7 +1,8 @@
-package com.advalent.automation.impl.pages.search.globalsearch.viewevent;
+package com.advalent.automation.impl.pages.search.globalsearch.viewevent.overviewtab;
 
 import com.advalent.automation.api.annotations.LogStep;
 import com.advalent.automation.api.annotations.inputfield.CustomElement;
+import com.advalent.automation.api.components.tab.ITab;
 import com.advalent.automation.components.inputelements.DropDown;
 import com.advalent.automation.components.inputelements.TextBox;
 import com.advalent.automation.impl.pages.common.AdvalentPage;
@@ -10,7 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class OverviewTab extends AdvalentPage  {
+public class OverviewTab extends AdvalentPage implements ITab {
     @FindBy(xpath = "//*[@id=\"content\"]/div[3]/div/form/div[2]/div[1]/div/div/div/div[1]/div/ng-form/h4")
     WebElement pageTitle ;
 
@@ -137,7 +138,6 @@ public class OverviewTab extends AdvalentPage  {
         return new EventOwnershipModal(getDriver());
     }
 
-    //ToDo LienProcessingModal Page Object
     @LogStep(step = "Clicking On Event Ownership Button")
     public LienProcessingModal clickOnLienProcessingBtn(){
         lienProcessingBtn.click();
@@ -149,13 +149,6 @@ public class OverviewTab extends AdvalentPage  {
         PageFactory.initElements(getDriver(),this);
     }
 
-    @Override
-    public String getPageTitle() {
-        return "Overview";
-    }
-
-    @Override
-    public String getDisplayedPageTitle() {return pageTitle.getText();}
 
     @Override
     public boolean isFullyLoaded() {
@@ -163,4 +156,23 @@ public class OverviewTab extends AdvalentPage  {
     }
 
 
+    @Override
+    public String getTabName() {
+        return "Overview";
+    }
+
+    @Override
+    public String getDisplayedTabTitle() {
+        return pageTitle.getText();
+    }
+
+    @Override
+    public String getPageTitle() {
+        return getTabName();
+    }
+
+    @Override
+    public String getDisplayedPageTitle() {
+        return getDisplayedTabTitle();
+    }
 }

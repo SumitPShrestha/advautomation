@@ -1,4 +1,4 @@
-package com.advalent.automation.impl.pages.search.globalsearch.viewevent;
+package com.advalent.automation.impl.pages.search.globalsearch.viewevent.overviewtab;
 
 import com.advalent.automation.api.annotations.LogStep;
 import com.advalent.automation.api.annotations.inputfield.CustomElement;

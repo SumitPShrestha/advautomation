@@ -46,7 +46,7 @@ public abstract class AbstractWebComponent implements IAmWebComponent {
 
     @LogMethodExecutionTime
     @Override
-    public IAmWebComponent doWaitTillFullyLoaded(int waitTimeInSecs) {
+    public AbstractWebComponent doWaitTillFullyLoaded(int waitTimeInSecs) {
 
        logger.info("Waiting for __{}__ loading ...", this.getClass()
                  .getSimpleName());
