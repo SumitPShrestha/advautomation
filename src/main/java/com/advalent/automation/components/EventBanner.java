@@ -4,49 +4,79 @@ import com.advalent.automation.api.annotations.LogStep;
 import com.advalent.automation.api.components.datagrid.IDataGrid;
 import com.advalent.automation.api.constants.TimeOuts;
 import com.advalent.automation.impl.pages.common.AbstractWebComponent;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class EventBanner extends AbstractWebComponent {
     @FindBy(xpath = "//*[@id=\"content\"]/div[3]/div/form/div[1]/div/div[1]/a")
-    WebElement eventId;
+    public WebElement eventId;
 
     @FindBy(xpath = "//*[@id=\"content\"]/div[3]/div/form/div[1]/div/div[2]/a[1]")
-    WebElement totIncludedAmt;
+    public WebElement totIncludedAmt;
 
     @FindBy(xpath = "//*[@id=\"content\"]/div[3]/div/form/div[1]/div/div[2]/a[2]")
-    WebElement totRecoveredAmt;
+    public WebElement totRecoveredAmt;
 
     @FindBy(xpath = "//*[@id=\"content\"]/div[3]/div/form/div[1]/div/div[2]/a[3]")
-    WebElement totApprProjAmt;
+    public WebElement totApprProjAmt;
 
     @FindBy(xpath = "//*[@id=\"content\"]/div[3]/div/form/div[1]/div/div[3]/a")
-    WebElement patientName;
+    public WebElement patientName;
 
     @FindBy(xpath = "//*[@id=\"content\"]/div[3]/div/form/div[1]/div/div[5]/a[1]")
-    WebElement eventOwner;
+    public WebElement eventOwner;
 
     @FindBy(xpath = "//*[@id=\"content\"]/div[3]/div/form/div[1]/div/div[5]/a[2]")
-    WebElement lastUpdated;
+    public WebElement lastUpdated;
 
     @FindBy(xpath = "//*[@id=\"addTask\"]")
-    WebElement addTaskBtn;
+    public WebElement addTaskBtn;
 
     @FindBy(xpath = "//*[@id=\"viewIncClaims\"]")
-    WebElement viewIncludedClaimsBtn;
+    public WebElement viewIncludedClaimsBtn;
+    @FindBy(xpath = "//*[@id=\"content\"]/div[3]/div/form/div[1]")
+    public WebElement eventBannerContainer;
 
     public EventBanner(WebDriver driver) {
+
         super(driver);
+        PageFactory.initElements(driver, this);
     }
 
-    public String getDisplayedEventId() {return eventId.getText();}
-    public String getDisplayedTotIncludedAmt() {return totIncludedAmt.getText();}
-    public String getDisplayedTotRecoveredAmt() {return totRecoveredAmt.getText();}
-    public String getDisplayedTotApprProjAmt() {return totApprProjAmt.getText();}
-    public String getDisplayedPatientName() {return patientName.getText();}
-    public String getDisplayedEventOwner() {return eventOwner.getText();}
-    public String getDisplayedLastUpdated() {return lastUpdated.getText();}
+    public String getDisplayedEventId() {
+        return eventId.getText();
+    }
+
+    public String getDisplayedTotIncludedAmt() {
+        return totIncludedAmt.getText();
+    }
+
+    public String getDisplayedTotRecoveredAmt() {
+        return totRecoveredAmt.getText();
+    }
+
+    public String getDisplayedTotApprProjAmt() {
+        return totApprProjAmt.getText();
+    }
+
+    public String getDisplayedPatientName() {
+        return patientName.getText();
+    }
+
+    public String getDisplayedEventOwner() {
+        return eventOwner.getText();
+    }
+
+    public String getDisplayedLastUpdated() {
+        return lastUpdated.getText();
+    }
+
+    public String getDisplayedEventStatus() {
+        return null;
+    }
 
    /* //ToDo taskTab Page Object
     @LogStep(step = "Clicking On Add Task Button")
@@ -62,8 +92,13 @@ public class EventBanner extends AbstractWebComponent {
         return new IncludedClaimsDetailsPage(getDriver());
     }
 */
+
+    public String getEventStatus() {
+        return getDriver().findElement(By.xpath("//*[@id=\"content\"]/div[3]/div/form/div[1]/div/div[1]")).getText().split("\n")[1].split(":")[1];
+    }
+
     @Override
     public boolean isFullyLoaded() {
-        return false;
+        return this.eventBannerContainer.isDisplayed();
     }
 }

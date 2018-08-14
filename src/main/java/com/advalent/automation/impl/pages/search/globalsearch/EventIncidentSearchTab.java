@@ -4,6 +4,7 @@ import com.advalent.automation.api.annotations.LogStep;
 import com.advalent.automation.api.annotations.inputfield.CustomElement;
 import com.advalent.automation.api.components.datagrid.IDataGrid;
 import com.advalent.automation.api.components.tab.ITab;
+import com.advalent.automation.api.constants.TimeOuts;
 import com.advalent.automation.components.inputelements.AutoSuggest;
 import com.advalent.automation.components.inputelements.DropDown;
 import com.advalent.automation.components.inputelements.MultipleAutoComplete;
@@ -189,5 +190,24 @@ public class EventIncidentSearchTab extends AbstractSearchPage implements ITab {
     public ViewEventPage clickOnFirstRowOfDataGrid() {
         getDataGrid().clickOnFirstRow();
         return new ViewEventPage(getDriver());
+    }
+
+    public ViewEventPage goToViewEventPageForEventId(int eventId) {
+        this.enterEventId("" + eventId);
+        this.dataGrid = this.clickOnSearchButton();
+        dataGrid.clickOnFirstRow();
+        ViewEventPage viewEventPage = new ViewEventPage(getDriver());
+        viewEventPage.doWaitTillFullyLoaded(TimeOuts.THREE_SECONDS);
+        return viewEventPage;
+    }
+
+    public ViewEventPage goToViewEventPageForEventStatus(String status) {
+        this.enterEventStatus(status);
+        this.dataGrid = this.clickOnSearchButton();
+        this.clickOnOkOfWarning();
+        dataGrid.clickOnFirstRow();
+        ViewEventPage viewEventPage = new ViewEventPage(getDriver());
+        viewEventPage.doWaitTillFullyLoaded(TimeOuts.THREE_SECONDS);
+        return viewEventPage;
     }
 }

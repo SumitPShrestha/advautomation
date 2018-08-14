@@ -1,6 +1,5 @@
 package com.advalent.automation.reporting;
 
-import com.advalent.automation.impl.utils.ReportConstants;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
@@ -8,14 +7,10 @@ import com.aventstack.extentreports.reporter.configuration.ChartLocation;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.google.common.base.Preconditions;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
-import static com.advalent.automation.impl.utils.ReportConstants.REPORT_DIR;
 import static com.advalent.automation.impl.utils.ReportConstants.REPORT_FILE_NAME;
 import static com.advalent.automation.impl.utils.ReportConstants.REPORT_TITLE;
-import static org.fest.assertions.Assertions.assertThat;
 
 public class ExtentHTMLReportManager {
 
@@ -48,8 +43,8 @@ public class ExtentHTMLReportManager {
     }
 
     public void addStep(String step) {
-        testToLog.info(step);
-        testSteps.add(" <b>" + step + " </b>");
+        testToLog.info(" <b>" + step + " </b>");
+        extent.flush();
     }
 
     public ArrayList<String> getTestSteps() {
@@ -62,7 +57,8 @@ public class ExtentHTMLReportManager {
 
 
     public void addStep(String step, String value) {
-        testSteps.add(" <b>" + step + "= </b>" + value);
+        testToLog.info(" <b>" + step + "= </b>" + value);
+        extent.flush();
     }
 
 

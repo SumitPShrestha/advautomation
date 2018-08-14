@@ -3,6 +3,7 @@ package com.advalent.automation.impl.pages.search.globalsearch.viewevent.patient
 import com.advalent.automation.api.annotations.inputfield.CustomElement;
 import com.advalent.automation.api.components.datagrid.IDataGrid;
 import com.advalent.automation.api.components.tab.ITab;
+import com.advalent.automation.components.inputelements.AutoSuggest;
 import com.advalent.automation.components.inputelements.DropDown;
 import com.advalent.automation.components.inputelements.TextBox;
 import com.advalent.automation.impl.component.datagrid.DataGrid;
@@ -84,14 +85,14 @@ public class PatientInfoTab extends AdvalentPage implements ITab {
     @CustomElement(xpath = "//*[@id=\"DamagedPartyStreet2\"]")
     public TextBox patientAddress2;
 
-    /*@CustomElement(xpath = "//*[@id=\"DamagedPartyCity\"]")
-    public AutoSuggest patientCity;*/
+    @CustomElement(xpath = "//*[@id=\"DamagedPartyCity\"]")
+    public AutoSuggest patientCity;
 
     @CustomElement(xpath = "//*[@id=\"DamagedPartyState\"]")
     public DropDown patientState;
 
-    /*@CustomElement(xpath = "//*[@id=\"DamagedPartyZip\"]")
-    public AutoSuggest patientZip;*/
+    @CustomElement(xpath = "//*[@id=\"DamagedPartyZip\"]")
+    public AutoSuggest patientZip;
 
     @CustomElement(xpath = "//*[@id=\"DamagedPartyHomePhone\"]")
     public TextBox patientHomePhone;

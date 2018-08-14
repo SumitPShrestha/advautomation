@@ -5,6 +5,7 @@ import com.advalent.automation.api.components.loadingcomponent.ILoadingComponent
 import com.advalent.automation.api.constants.TimeOuts;
 import com.advalent.automation.components.webelement.WebElements;
 import com.advalent.automation.impl.pages.common.AbstractWebComponent;
+import com.advalent.automation.impl.pages.search.globalsearch.viewevent.ViewEventPage;
 import com.advalent.automation.impl.utils.WaitUtils;
 import com.google.common.base.Predicate;
 import org.openqa.selenium.*;
@@ -55,8 +56,27 @@ public class DataGrid extends AbstractWebComponent implements IDataGrid {
         clickOnRow(1);
     }
 
-    private void clickOnRow(int rowIndex) {
+    @Override
+    public <T> T clickOnRowExpectingPage(Class<T> expectedClass, int rowIndex) {
+        T pageInstance = PageFactory.initElements(driver, expectedClass);
+        this.clickOnRow(rowIndex);
+        return pageInstance;
+    }
+
+    @Override
+    public <T> T clickOnColumnOfRowExpectingPage(Class<T> expectedClass, int rowIndex, int colIndex) {
+        T pageInstance = PageFactory.initElements(driver, expectedClass);
+        this.clickOnComumnOfRow(rowIndex, colIndex);
+        return pageInstance;
+    }
+
+
+    public void clickOnRow(int rowIndex) {
         getDriver().findElement(By.xpath(this.locator + "/tbody/tr[" + rowIndex + "]")).click();
+    }
+
+    public void clickOnComumnOfRow(int rowIndex, int colIndex) {
+        getDriver().findElement(By.xpath(this.locator + "/tbody/tr[" + rowIndex + "]/td[" + colIndex + "]")).click();
     }
 
 

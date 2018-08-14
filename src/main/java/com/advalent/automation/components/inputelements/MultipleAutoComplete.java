@@ -45,7 +45,7 @@ public class MultipleAutoComplete extends InputElement implements IHaveValidatio
         this.element.findElement(By.xpath("./div[2]/ul/li[contains(text(),'" + value + "')]")).click();
         this.element.click();
         return this;
-    }
+    }//*[@id="EventStatusList"]/div[2]/ul/li
 
     @Override
     public InputElement clearValue() {

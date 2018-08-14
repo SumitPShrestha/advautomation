@@ -12,12 +12,12 @@ import org.openqa.selenium.support.FindBy;
 public class TaskTab extends AdvalentPage implements ITab {
 
     @FindBy(xpath = "//*[@id=\"content\"]/div[3]/div/form/div[2]/div[1]/div/div/div/div[2]/div/div/div/h4")
-    WebElement pageTitle;
+    public WebElement pageTitle;
 
     @FindBy(xpath = "//*[@id=\"addnewTask\"]")
-    WebElement addNewTaskBtn;
+    public WebElement addNewTaskBtn;
 
-    IDataGrid dataGrid;
+    IDataGrid taskDataGrid;
 
     @LogStep(step = "Clicking on Add New Task Button")
     public TaskSection clickOnAddNewTaskBtn(){
@@ -27,7 +27,7 @@ public class TaskTab extends AdvalentPage implements ITab {
 
     public TaskTab(WebDriver driver) {
         super(driver);
-        dataGrid = new DataGrid(getDriver(),"//*[@id=\"Table-task\"]");
+        taskDataGrid = new DataGrid(getDriver(),"//*[@id=\"Table-task\"]");
     }
 
     @Override

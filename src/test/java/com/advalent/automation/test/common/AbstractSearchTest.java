@@ -70,10 +70,10 @@ public abstract class AbstractSearchTest extends BaseTest {
     }
 
 
-    @DataProvider()
+   /* @DataProvider()
     public Object[][] availableInputProvider() {
         return DataProviderUtils.getObjects(inputElements, inpuValueList);
     }
 
-
+*/
 }

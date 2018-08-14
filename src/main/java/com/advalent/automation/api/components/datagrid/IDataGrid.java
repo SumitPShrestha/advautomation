@@ -18,4 +18,7 @@ public interface IDataGrid {
      IDataGrid waitTillDataIsCleared(int waitTimeInSecs);
 
     void clickOnFirstRow();
+
+    <T>  T clickOnRowExpectingPage(Class<T> expectedClass,int rowIndex);
+    <T>  T clickOnColumnOfRowExpectingPage(Class<T> expectedClass, int rowIndex, int colIndex);
 }

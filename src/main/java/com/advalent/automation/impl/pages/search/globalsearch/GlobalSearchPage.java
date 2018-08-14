@@ -6,6 +6,7 @@ import com.advalent.automation.api.components.tab.ITabPanel;
 import com.advalent.automation.api.constants.TimeOuts;
 import com.advalent.automation.api.features.IAmLandingPage;
 import com.advalent.automation.impl.pages.common.AdvalentPage;
+import com.advalent.automation.impl.pages.search.globalsearch.viewevent.ViewEventPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -69,4 +70,7 @@ public class GlobalSearchPage extends AdvalentPage implements ITabPanel, IAmLand
         return "/#/members/globalsearch";
     }
 
+    public ViewEventPage navigateToViewEventPageOfEventId() {
+        return null;
+    }
 }

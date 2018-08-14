@@ -167,6 +167,7 @@ public class TestStepsAspect {
         String testDescription = ((MethodSignature) thisJoinPoint.getSignature()).getMethod().getAnnotation(Test.class).description();
         test = ((ExtentTest) suiteThread.get()).createNode(testDescription);
         testThread.set(test);
+        reportManager.setTestToLog(test);
     }
 
     @After("execution(@(org.testng.annotations.Test) * *.*(..))")
@@ -242,7 +243,7 @@ public class TestStepsAspect {
         if (currentCycle != null) {
             testToLog.info(step.toString());
             extent.flush();
-            reportManager.getTestSteps().add(step.toString());
+            reportManager.addStep(step.toString());
         } else {
             testToLog.info(step.toString());
             extent.flush();
