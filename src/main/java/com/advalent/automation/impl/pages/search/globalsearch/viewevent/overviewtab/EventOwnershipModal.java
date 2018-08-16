@@ -1,10 +1,10 @@
-package com.advalent.automation.impl.pages.search.globalsearch.viewevent;
+package com.advalent.automation.impl.pages.search.globalsearch.viewevent.overviewtab;
 
 import com.advalent.automation.api.annotations.LogStep;
 import com.advalent.automation.api.annotations.inputfield.CustomElement;
-import com.advalent.automation.components.inputelements.DropDown;
 import com.advalent.automation.components.inputelements.TextBox;
 import com.advalent.automation.impl.pages.common.AbstractModal;
+import com.advalent.automation.impl.pages.search.globalsearch.viewevent.discovery.ReassignEventOwnershipModal;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

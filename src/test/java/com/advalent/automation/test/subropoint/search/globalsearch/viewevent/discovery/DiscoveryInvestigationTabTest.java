@@ -15,7 +15,6 @@ import static org.fest.assertions.Assertions.assertThat;
 
 public class DiscoveryInvestigationTabTest extends BaseTest {
 
-
     EventIncidentSearchTab eventIncidentSearchTab;
     IDataGrid eventIncidentTabDataGrid;
     ViewEventPage viewEventPage;
@@ -23,7 +22,7 @@ public class DiscoveryInvestigationTabTest extends BaseTest {
     DiscoveryInvestigationTab discoveryInvestigationTab;
 
     @BeforeClass
-    public void openDiscoveryViewPAge() {
+    public void openDiscoveryViewPage() {
         super.setUp();
         GlobalSearchPage searchPage = navigationBar.navigateTo(GlobalSearchPage.class, TimeOuts.TEN_SECONDS);
         eventIncidentSearchTab = (EventIncidentSearchTab) searchPage.getDefaultTab();
@@ -38,8 +37,8 @@ public class DiscoveryInvestigationTabTest extends BaseTest {
     public void testThatDiscoveryInvestigationIsLoadedByDefault(){
         discoveryInvestigationTab = (DiscoveryInvestigationTab)  discoveryEventPage.getDefaultTab();
         String expectedTabTitle = discoveryInvestigationTab.getPageTitle();
-        String actulTabTitle = discoveryInvestigationTab.getDisplayedPageTitle();
-        assertThat(expectedTabTitle).isEqualTo(actulTabTitle).as("Bage Title should be as expected");
+        String actualTabTitle = discoveryInvestigationTab.getDisplayedPageTitle();
+        assertThat(expectedTabTitle).isEqualTo(actualTabTitle).as("Page Title should be as expected");
     }
 
 

@@ -1,11 +1,7 @@
 package com.advalent.automation.api.features;
 
-import com.advalent.automation.api.annotations.inputfield.CustomElement;
+import com.advalent.automation.impl.pages.common.AbstractWebComponent;
 import org.openqa.selenium.WebDriver;
-
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.util.Arrays;
 
 /**
  * Represents a LIVE web component where events, interactions & LIVE
@@ -33,7 +29,7 @@ public interface IAmWebComponent {
      * @param waitTimeInSecs
      * @return
      */
-    public IAmWebComponent doWaitTillFullyLoaded(int waitTimeInSecs);
+    public AbstractWebComponent doWaitTillFullyLoaded(int waitTimeInSecs);
 
     public WebDriver getDriver();
 

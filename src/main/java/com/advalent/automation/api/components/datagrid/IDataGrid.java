@@ -15,7 +15,13 @@ public interface IDataGrid {
 
     boolean isFullyLoaded();
 
-     IDataGrid waitTillDataIsCleared(int waitTimeInSecs);
+    void clickOnColumnOfRow(int rowIndex, int colIndex);
+
+    IDataGrid waitTillDataIsCleared(int waitTimeInSecs);
 
     void clickOnFirstRow();
+
+    <T> T clickOnRowExpectingPage(Class<T> expectedClass, int rowIndex);
+
+    <T> T clickOnColumnOfRowExpectingPage(Class<T> expectedClass, int rowIndex, int colIndex);
 }

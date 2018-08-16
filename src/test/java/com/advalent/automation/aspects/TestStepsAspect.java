@@ -20,14 +20,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
-import static com.advalent.automation.aspects.AspectUtils.getTimeTaken;
 import static com.advalent.automation.impl.utils.ReportConstants.*;
 
 /*
@@ -167,6 +162,7 @@ public class TestStepsAspect {
         String testDescription = ((MethodSignature) thisJoinPoint.getSignature()).getMethod().getAnnotation(Test.class).description();
         test = ((ExtentTest) suiteThread.get()).createNode(testDescription);
         testThread.set(test);
+        reportManager.setTestToLog(test);
     }
 
     @After("execution(@(org.testng.annotations.Test) * *.*(..))")
@@ -206,12 +202,20 @@ public class TestStepsAspect {
                 } else {
                     logger.warn("Cannot take ScreenShot. WebDriver is Null {}", testClass.getClass().getSimpleName());
                 }
-                ((ExtentTest) testThread.get()).fail(exception.getCause());
+                if (exception instanceof NullPointerException) {
+                    ((ExtentTest) testThread.get()).fail("Null Pointer Exception");
+                    extent.flush();
+
+                } else {
+                    ((ExtentTest) testThread.get()).fail("Null Pointer Exception");
+                    extent.flush();
+                }
+
+
             }
         } catch (Exception ex) {
-            ((ExtentTest) testThread.get()).fail(exception.getCause());
+            ex.printStackTrace();
         }
-        extent.flush();
     }
 
     @AfterReturning("execution(@(org.testng.annotations.AfterMethod) * *.*(..))")
@@ -242,7 +246,6 @@ public class TestStepsAspect {
         if (currentCycle != null) {
             testToLog.info(step.toString());
             extent.flush();
-            reportManager.getTestSteps().add(step.toString());
         } else {
             testToLog.info(step.toString());
             extent.flush();
@@ -259,7 +262,6 @@ public class TestStepsAspect {
         testToLog.fail(exception.getCause());
         testToLog = null;
     }
-
 
 
     private boolean isAnnotatedMethodIsPresentInSubClass(Class annotationClass, JoinPoint thisJoinPoint) {

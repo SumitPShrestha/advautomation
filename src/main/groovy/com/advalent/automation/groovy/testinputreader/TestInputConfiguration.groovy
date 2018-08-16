@@ -3,7 +3,7 @@ package com.advalent.automation.groovy.testinputreader
 
 class TestInputConfiguration {
 
-    Map<String, String> inputMap
+    Map<String, Map<String, String>> inputMap
 
 
     TestInputConfiguration(String fileName) {
@@ -15,10 +15,11 @@ class TestInputConfiguration {
                 return { Object... args -> builder.invokeMethod(name, args) }
             }
         }
-        def script = new GroovyShell(binding).parse(getConfigFile())
+        def script = new GroovyShell(binding).parse(getConfigFile(fileName))
 
         script.run()
-        inputMap = builder.inputMap
+        inputMap = builder.pageInputMap
+
 
     }
 

@@ -1,24 +1,19 @@
 package com.advalent.automation.impl.component.datagrid;
 
 import com.advalent.automation.api.components.datagrid.IDataGrid;
-import com.advalent.automation.api.components.loadingcomponent.ILoadingComponent;
 import com.advalent.automation.api.constants.TimeOuts;
-import com.advalent.automation.components.webelement.WebElements;
 import com.advalent.automation.impl.pages.common.AbstractWebComponent;
 import com.advalent.automation.impl.utils.WaitUtils;
 import com.google.common.base.Predicate;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class DataGrid extends AbstractWebComponent implements IDataGrid {
-    private final String locator;
+    protected final String locator;
 
     public DataGrid(WebDriver driver, String locator) {
         super(driver);
@@ -55,8 +50,27 @@ public class DataGrid extends AbstractWebComponent implements IDataGrid {
         clickOnRow(1);
     }
 
-    private void clickOnRow(int rowIndex) {
+    @Override
+    public <T> T clickOnRowExpectingPage(Class<T> expectedClass, int rowIndex) {
+        T pageInstance = PageFactory.initElements(driver, expectedClass);
+        this.clickOnRow(rowIndex);
+        return pageInstance;
+    }
+
+    @Override
+    public <T> T clickOnColumnOfRowExpectingPage(Class<T> expectedClass, int rowIndex, int colIndex) {
+        T pageInstance = PageFactory.initElements(driver, expectedClass);
+        this.clickOnColumnOfRow(rowIndex, colIndex);
+        return pageInstance;
+    }
+
+
+    public void clickOnRow(int rowIndex) {
         getDriver().findElement(By.xpath(this.locator + "/tbody/tr[" + rowIndex + "]")).click();
+    }
+
+    public void clickOnColumnOfRow(int rowIndex, int colIndex) {
+        getDriver().findElement(By.xpath(this.locator + "/tbody/tr[" + rowIndex + "]/td[" + colIndex + "]/span/a")).click();
     }
 
 

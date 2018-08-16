@@ -12,9 +12,6 @@ public class DropDown extends InputElement implements IHaveValidations {
     }
 
 
-
-
-
     @Override
     public String getInputFormatValidationMessage(String input) {
         Validation validation = getClass().getAnnotation(Validation.class);
@@ -34,7 +31,17 @@ public class DropDown extends InputElement implements IHaveValidations {
 
     }
 
+    @Override
+    public InputElement enterValue(String value) {
+        throw new AutomationException("method not implemented for DropDown");
+    }
+
+    @Override
+    public InputElement clearValue() {
+        throw new AutomationException("method not implemented for DropDown");
+    }
+
     public boolean isFullyLoaded() {
-        return false;
+        return this.element.isDisplayed();
     }
 }

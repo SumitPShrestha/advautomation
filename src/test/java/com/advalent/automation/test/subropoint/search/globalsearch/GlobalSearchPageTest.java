@@ -21,7 +21,7 @@ import static org.fest.assertions.Assertions.assertThat;
  * */
 
 @Test(groups = {"Global Search", "Search"}, description = "Global Search - Event/Incident Search Tab Test")
-public class GlobasSearchPageTest extends AbstractSearchTest {
+public class GlobalSearchPageTest extends AbstractSearchTest {
     GlobalSearchPage globalSearchPage;
 
     EventIncidentSearchTab eventIncidentSearchTab;
@@ -42,7 +42,7 @@ public class GlobasSearchPageTest extends AbstractSearchTest {
         inpuValueList = getInputValueList();
     }
 
- /*   @Test(description = "Test That Event/Incident search tab is displayed by default", priority = 1)
+    @Test(description = "Test That Event/Incident search tab is displayed by default", priority = 1)
     public void test() {
         eventIncidentSearchTab = (EventIncidentSearchTab) globalSearchPage.getDefaultTab();
         eventIncidentTabDataGrid = eventIncidentSearchTab.getDataGrid();
@@ -74,7 +74,6 @@ public class GlobasSearchPageTest extends AbstractSearchTest {
         ExtentHTMLReportManager.getInstance().addStep("Table Data After Search", dataAfterSearch);
         assertThat(initialTableData).isNotEqualTo(dataAfterSearch).as("Table Data Should be different after search");
     }
-*/
     @Test(description = "Test Search By Client Functionality", priority = 2)
     public void searchByClient() {
         eventIncidentTabDataGrid = eventIncidentSearchTab.getDataGrid();

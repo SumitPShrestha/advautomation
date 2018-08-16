@@ -1,7 +1,8 @@
-package com.advalent.automation.impl.pages.search.globalsearch.viewevent;
+package com.advalent.automation.impl.pages.search.globalsearch.viewevent.overviewtab;
 
 import com.advalent.automation.api.annotations.LogStep;
 import com.advalent.automation.api.annotations.inputfield.CustomElement;
+import com.advalent.automation.api.components.tab.ITab;
 import com.advalent.automation.components.inputelements.DropDown;
 import com.advalent.automation.components.inputelements.TextBox;
 import com.advalent.automation.impl.pages.common.AdvalentPage;
@@ -10,9 +11,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class OverviewTab extends AdvalentPage  {
+public class OverviewTab extends AdvalentPage implements ITab {
     @FindBy(xpath = "//*[@id=\"content\"]/div[3]/div/form/div[2]/div[1]/div/div/div/div[1]/div/ng-form/h4")
-    WebElement pageTitle ;
+    WebElement pageTitle;
 
     @FindBy(xpath = "//*[@id=\"changeOwnership\"]")
     WebElement eventOwnershipBtn;
@@ -130,37 +131,63 @@ public class OverviewTab extends AdvalentPage  {
     @CustomElement(xpath = "//*[@id=\"Product\"]")
     public TextBox product;
 
+    @FindBy(xpath = "//*[@id=\"saveQA\"]")
+    private WebElement saveBtn;
+
 
     @LogStep(step = "Clicking On Event Ownership Button")
-    public EventOwnershipModal clickOnEventOwnershipBtn(){
+    public EventOwnershipModal clickOnEventOwnershipBtn() {
         eventOwnershipBtn.click();
         return new EventOwnershipModal(getDriver());
     }
 
-    //ToDo LienProcessingModal Page Object
     @LogStep(step = "Clicking On Event Ownership Button")
-    public LienProcessingModal clickOnLienProcessingBtn(){
+    public LienProcessingModal clickOnLienProcessingBtn() {
         lienProcessingBtn.click();
         return new LienProcessingModal(getDriver());
     }
 
     public OverviewTab(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(getDriver(),this);
+        PageFactory.initElements(getDriver(), this);
     }
 
-    @Override
-    public String getPageTitle() {
-        return "Overview";
-    }
-
-    @Override
-    public String getDisplayedPageTitle() {return pageTitle.getText();}
 
     @Override
     public boolean isFullyLoaded() {
         return pageTitle.isDisplayed();
     }
 
+
+    @Override
+    public String getTabName() {
+        return "Overview";
+    }
+
+    @Override
+    public String getDisplayedTabTitle() {
+        return pageTitle.getText();
+    }
+
+    @Override
+    public String getPageTitle() {
+        return getTabName();
+    }
+
+    @Override
+    public String getDisplayedPageTitle() {
+        return getDisplayedTabTitle();
+    }
+
+    @LogStep(step = "Entering Loss Details")
+    public OverviewTab enterLossDetails(String lossDetails) {
+        this.lossDetails.clearValue().enterValue(lossDetails);
+        return this;
+    }
+
+    public OverviewTab clickOnSaveButton() {
+        this.saveBtn.click();
+        return this;
+    }
 
 }

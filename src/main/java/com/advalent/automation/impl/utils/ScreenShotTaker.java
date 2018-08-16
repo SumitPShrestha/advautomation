@@ -59,10 +59,7 @@ public class ScreenShotTaker {
     }
 
 
-    /**
-     * Convenience method that returns a path in the currentDirectory
-     * where the user may store the screenShots
-     */
+
 
 
 }

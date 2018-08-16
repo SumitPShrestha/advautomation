@@ -1,4 +1,4 @@
-package com.advalent.automation.impl.pages.search.globalsearch.viewevent;
+package com.advalent.automation.impl.pages.search.globalsearch.viewevent.overviewtab;
 
 import com.advalent.automation.api.annotations.LogStep;
 import com.advalent.automation.api.annotations.inputfield.CustomElement;
@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class LienProcessingModal extends AbstractModal{
+public class LienProcessingModal extends AbstractModal {
 
     @FindBy(xpath = "/html/body/div[6]/div/div/d-header-footer-template/form/div[1]/h4")
     WebElement pageTitle;
@@ -112,5 +112,10 @@ public class LienProcessingModal extends AbstractModal{
     public LienProcessingModal checkLienReleased() {
         lienReleased.fire();
         return this;
+    }
+
+    public OverviewTab clickOnCloseBtn() {
+        this.closeBtn.click();
+        return new OverviewTab(getDriver());
     }
 }

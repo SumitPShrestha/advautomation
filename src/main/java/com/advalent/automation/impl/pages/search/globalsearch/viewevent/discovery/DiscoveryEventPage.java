@@ -6,8 +6,9 @@ import com.advalent.automation.api.components.tab.ITab;
 import com.advalent.automation.api.components.tab.ITabPanel;
 import com.advalent.automation.components.inputelements.DropDown;
 import com.advalent.automation.components.inputelements.TextBox;
+import com.advalent.automation.impl.component.Tabs;
 import com.advalent.automation.impl.pages.common.AdvalentPage;
-import com.advalent.automation.impl.pages.search.globalsearch.viewevent.OverviewTab;
+import com.advalent.automation.impl.pages.search.globalsearch.viewevent.ViewEventPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,12 +16,13 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class DiscoveryEventPage extends AdvalentPage implements ITabPanel {
     @FindBy(xpath = "//*[@id=\"content\"]/div[3]/div/form/div[2]/div[1]/ng-form/div/div[1]")
-    WebElement pageTitle ;
+    WebElement pageTitle;
 
-    @FindBy(xpath = "//*[@id=\"content\"]/div[3]/div/form/div[2]/div[1]/div/div/div/div[1]/div/ng-form/h4/div/i/span")
+    @FindBy(xpath = "//*[@id=\"content\"]/div[3]/div/form/div[2]/div[1]/div/i/span")
     WebElement switchToEventCaseViewBtn;
 
     @FindBy(xpath = "//*[@id=\"resetQA\"]")
@@ -51,9 +53,9 @@ public class DiscoveryEventPage extends AdvalentPage implements ITabPanel {
 
     //ToDo EventCaseViewPage Page Object
     @LogStep(step = "Clicking On Switch To Event/Case View Button")
-    public OverviewTab clickOnSwitchToEventCaseViewBtn(){
+    public ViewEventPage clickOnSwitchToEventCaseViewBtn() {
         switchToEventCaseViewBtn.click();
-        return new OverviewTab(getDriver());
+        return new ViewEventPage(getDriver());
     }
 
 
@@ -62,7 +64,7 @@ public class DiscoveryEventPage extends AdvalentPage implements ITabPanel {
 
     public DiscoveryEventPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(getDriver(),this);
+        PageFactory.initElements(getDriver(), this);
     }
 
     @LogStep(step = "Clicking On Clear Update Button")
@@ -89,7 +91,9 @@ public class DiscoveryEventPage extends AdvalentPage implements ITabPanel {
     }
 
     @Override
-    public String getDisplayedPageTitle() {return pageTitle.getText();}
+    public String getDisplayedPageTitle() {
+        return pageTitle.getText();
+    }
 
     @Override
     public boolean isFullyLoaded() {
@@ -97,14 +101,16 @@ public class DiscoveryEventPage extends AdvalentPage implements ITabPanel {
     }
 
     @Override
-    public List<Class> getAvailableTabs() {
-        return Arrays.asList(DiscoveryInvestigationTab.class);
+    public List<String> getAvailableTabs() {
+        return Arrays.asList(DiscoveryInvestigationTab.class)
+                .stream().map(clazz -> PageFactory.initElements(getDriver(), clazz).getTabName())
+                .collect(Collectors.toList());
     }
 
     @Override
-    public <T extends ITab> T clickOnTab(Class<T> tabClass) {
-        T tab = PageFactory.initElements(getDriver(), tabClass);
-        return tab;
+    public <T extends ITab> T clickOnTab(Tabs tab) {
+//        T tab = PageFactory.initElements(getDriver(), tabClass);
+        return null;
     }
 
     @Override

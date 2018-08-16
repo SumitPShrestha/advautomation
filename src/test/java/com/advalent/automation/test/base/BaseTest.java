@@ -76,7 +76,7 @@ public abstract class BaseTest {
         Preconditions.checkState(webDriver != null);
         Preconditions.checkState(user != null);
         IDashboardPage dashboardPage = app.open(context.getApplication()).loginWith(user);
-        dashboardPage.doWaitTillFullyLoaded(TimeOuts.THIRTY_SECONDS);
+        dashboardPage.doWaitTillFullyLoaded(TimeOuts.TWO_MINUTES);
         navigationBar = dashboardPage.getNavigationBar();
     }
 

@@ -1,5 +1,7 @@
 package com.advalent.automation.api.components.tab;
 
+import com.advalent.automation.impl.component.Tabs;
+
 import java.util.List;
 
 public interface ITabPanel {
@@ -11,15 +13,15 @@ public interface ITabPanel {
      *
      * @return list of {Link Tab}
      */
-    List<Class> getAvailableTabs();
+    List<String> getAvailableTabs();
 
     /**
      * click on the tab
      *
-     * @param tabClass (Class of the tab to be clicked)
-     * @return list of {Link Tab}
+     *
+     * @param tab@return list of {Link Tab}
      */
-    <T extends ITab> T clickOnTab(Class<T> tabClass);
+    <T extends ITab> T clickOnTab(Tabs tab);
 
 
     <T extends ITab> ITab getTab(Class<T> tabClass);

@@ -10,7 +10,7 @@ public interface ITab extends IAmWebComponent {
      *          to pill name displayed in page
      */
 
-    String getTabName();
+     String getTabName();
 
     String getDisplayedTabTitle();
 }
