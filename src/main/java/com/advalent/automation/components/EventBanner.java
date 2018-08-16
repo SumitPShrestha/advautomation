@@ -1,9 +1,8 @@
 package com.advalent.automation.components;
 
 import com.advalent.automation.api.annotations.LogStep;
-import com.advalent.automation.api.components.datagrid.IDataGrid;
-import com.advalent.automation.api.constants.TimeOuts;
 import com.advalent.automation.impl.pages.common.AbstractWebComponent;
+import com.advalent.automation.impl.pages.search.globalsearch.viewevent.taskstab.TaskTab;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -101,4 +100,12 @@ public class EventBanner extends AbstractWebComponent {
     public boolean isFullyLoaded() {
         return this.eventBannerContainer.isDisplayed();
     }
+
+
+    @LogStep(step = "Clicking On Add Task Button")
+    public TaskTab clickOnAddTaskBtn() {
+        addTaskBtn.click();
+        return new TaskTab(getDriver());
+    }
+
 }

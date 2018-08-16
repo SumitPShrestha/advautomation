@@ -8,6 +8,7 @@ import com.advalent.automation.impl.pages.common.AdvalentPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class TaskTab extends AdvalentPage implements ITab {
 
@@ -28,6 +29,7 @@ public class TaskTab extends AdvalentPage implements ITab {
     public TaskTab(WebDriver driver) {
         super(driver);
         taskDataGrid = new DataGrid(getDriver(),"//*[@id=\"Table-task\"]");
+        PageFactory.initElements(getDriver(), this);
     }
 
     @Override

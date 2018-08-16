@@ -1,23 +1,41 @@
-environments(default: 'SUBRO_POINT_SIT') {
-
-    environment(name: 'SUBRO_POINT_SIT') {
-        page(name: "GlobalSearchPage") {
-            EventId "56824"
-            IncidentId "REF000022"
-            EventStatus "Open"
-            PatientFirstName "Jonas"
-            PatientLastName "Smith"
-            PatientID "PID12399"
-            PatientDOB "12-13-1989"
-            PatientDOBVer "12/13/89"
-            MajorClient "Test Major Client 01"
-            Client "Test Client 01"
-            EmployerGroup "Test C01BG01 EG 01"
+page(name: 'Global Search') {
+    environment(name: 'SIT') {
+        section('Search') {
+            eventId '56824'
+            incidentId 'REF000022'
+            eventStatus 'Open'
+            patientFirstName 'Jonas'
+            patientLastName 'Smith'
+            patientID 'PID12399'
+            patientDOB '12-13-1989'
+            patientDOBVer '12/13/89'
+            majorClient 'Test Major Client 01'
+            client 'Test Client 01'
+            employerGroup 'Test C01BG01 EG 01'
         }
-        page(name: "GlobalSearchPage") {
+        section('Add') {
             Incident_ReferralFrom ''
+        }
+    }
+    environment(name: 'PROD_QA') {
+        section('GlobalSearchPage') {
+            eventId '56824'
+            incidentId 'REF000022'
+            eventStatus 'Open'
+            patientFirstName 'Jonas'
+            patientLastName 'Smith'
+            patientID 'PID12399'
+            patientDOB '12-13-1989'
+            patientDOBVer '12/13/89'
+            majorClient 'Test Major Client 01'
+            client 'Test Client 01'
+            employerGroup 'Test C01BG01 EG 01'
+        }
+        section('ViewEventPage') {
+//            Incident_ReferralFrom ''
         }
     }
 
 
 }
+

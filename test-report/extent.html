@@ -15,7 +15,7 @@
 
 		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/b4a58fcfd1e137bd9287244035a7c80d3d73b3af/dist/css/extent.css' type='text/css' rel='stylesheet' />
 	
-	<title>14Aug20180817's Test Report</title>
+	<title>15Aug20180843's Test Report</title>
 
 	<style type='text/css'>
 	</style>
@@ -33,11 +33,12 @@
 		<!-- slideout menu -->
 		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
 			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
-						<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+						<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
 		</ul>
 
 		<!-- report name -->
-		<span class='report-name'>14Aug20180817's Test Report</span>
+		<span class='report-name'>15Aug20180843's Test Report</span>
 		
 		<!-- report headline -->
 		<span class='report-headline'></span>
@@ -46,7 +47,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Aug 14, 2018 08:17:19 PM</span>
+                    <span class='label suite-start-time blue darken-3'>Aug 15, 2018 08:43:55 PM</span>
 				</a>
 			</li>
 			<li>
@@ -72,6 +73,7 @@
 				</a>
 				<ul id='tests-toggle' class='dropdown-content'>
 											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
 					<li class='divider'></li>
 					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
 				</ul>
@@ -122,15 +124,15 @@
 				
 				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='1'>
 					<div class='test-heading'>
-						<span class='test-name'>View Event Page Test</span>
-						<span class='test-time'>Aug 14, 2018 08:17:19 PM</span>
+						<span class='test-name'>Auth0 Login Page Test</span>
+						<span class='test-time'>Aug 15, 2018 08:43:55 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Aug 14, 2018 08:17:19 PM</span>
-	<span class='label end-time'>Aug 14, 2018 08:17:50 PM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 30s+583ms</span>
+	<span class='label start-time'>Aug 15, 2018 08:43:55 PM</span>
+	<span class='label end-time'>Aug 15, 2018 08:44:15 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 19s+924ms</span>
 </div>
 	<div class='test-steps'>
 		<table class='bordered table-results'>
@@ -144,78 +146,58 @@
 			<tbody>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>8:17:19 PM</td>
+					<td class='timestamp'>8:43:55 PM</td>
 					<td class='step-details'><h6> BEFORE SUITE: </h6></td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>8:17:19 PM</td>
-					<td class='step-details'><b>View Event Page Test started ! </b></td>
+					<td class='timestamp'>8:43:55 PM</td>
+					<td class='step-details'><b>Auth0 Login Page Test started ! </b></td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>8:17:19 PM</td>
-					<td class='step-details'><b> Suite Name </b> =View Event Page Test</td>
+					<td class='timestamp'>8:43:55 PM</td>
+					<td class='step-details'><b> Suite Name </b> =Auth0 Login Page Test</td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>8:17:20 PM</td>
+					<td class='timestamp'>8:43:55 PM</td>
 					<td class='step-details'><b>Created New Browser Instance </b></td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>8:17:24 PM</td>
+					<td class='timestamp'>8:43:59 PM</td>
 					<td class='step-details'><b> Application Lunched </b>		 [  <b>Value </b> = Application{url='https://frgtest.advalent.com', product='SUBRO_POINT'}  ]</td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>8:17:32 PM</td>
-					<td class='step-details'><b>Enter username </b>		 [  <b>Value </b> = sshrestha  ]</td>
-				</tr>
-				<tr class='log' status='info'>
-					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>8:17:32 PM</td>
-					<td class='step-details'><b>Enter Password </b>		 [  <b>Value </b> = EQN@1601  ]</td>
-				</tr>
-				<tr class='log' status='info'>
-					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>8:17:33 PM</td>
-					<td class='step-details'><b>Click On Login Button </b></td>
-				</tr>
-				<tr class='log' status='info'>
-					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>8:17:44 PM</td>
-					<td class='step-details'><b>Getting Default Tab In Global Search Page </b></td>
-				</tr>
-				<tr class='log' status='info'>
-					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>8:17:51 PM</td>
+					<td class='timestamp'>8:44:22 PM</td>
 					<td class='step-details'><h6> AFTER SUITE: </h6></td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>8:17:51 PM</td>
+					<td class='timestamp'>8:44:22 PM</td>
 					<td class='step-details'><b>Browser Instance Closed </b></td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>8:17:52 PM</td>
+					<td class='timestamp'>8:44:23 PM</td>
 					<td class='step-details'><h6> SUITE INFO: </h6></td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>8:17:52 PM</td>
-					<td class='step-details'><b>Start Time  </b>=08:17:19</td>
+					<td class='timestamp'>8:44:23 PM</td>
+					<td class='step-details'><b>Start Time  </b>=08:43:55</td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>8:17:52 PM</td>
-					<td class='step-details'><b>Test End Time </b> =08:17:52</td>
+					<td class='timestamp'>8:44:23 PM</td>
+					<td class='step-details'><b>Test End Time </b> =08:44:23</td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>8:17:52 PM</td>
-					<td class='step-details'><b>Total Time Taken </b> =0:0:33</td>
+					<td class='timestamp'>8:44:23 PM</td>
+					<td class='step-details'><b>Total Time Taken </b> =0:0:28</td>
 				</tr>
 			</tbody>
 		</table>
@@ -224,9 +206,9 @@
 		
 				<li class='node level-1 leaf pass' status='pass' test-id='2'>
 					<div class='collapsible-header'>
-						<h5 class='node-name'>Test That Clicking On EventId Of Datagrid In Navigates To View Event Page</h5>
-						<span class="node-time label grey lighten-1 white-text">Aug 14, 2018 08:17:49 PM</span>
-						<span class='node-duration label grey lighten-1 white-text'>0h 0m 3s+811ms</span>
+						<h5 class='node-name'>Test that user cannot login to application with incorrect credentials</h5>
+						<span class="node-time label grey lighten-1 white-text">Aug 15, 2018 08:44:10 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 0m 1s+366ms</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 						<div class='collapsible-body'>
@@ -242,34 +224,23 @@
 										<tbody>
 												<tr class='log' status='info'>
 													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-													<td class='timestamp'>8:17:45 PM</td>
-													<td class='step-details'><b>Entering Event Status </b>		 [  <b>Value </b> = Open  ]</td>
+													<td class='timestamp'>8:44:09 PM</td>
+													<td class='step-details'><b>Enter username </b>		 [  <b>Value </b> = invalidUserId  ]</td>
 												</tr>
 												<tr class='log' status='info'>
 													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-													<td class='timestamp'>8:17:45 PM</td>
-													<td class='step-details'><b> <b>Entering Event Status </b>		 [  <b>Value </b> = Open  ] </b></td>
+													<td class='timestamp'>8:44:09 PM</td>
+													<td class='step-details'><b>Enter Password </b>		 [  <b>Value </b> = invalidPassword  ]</td>
 												</tr>
 												<tr class='log' status='info'>
 													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-													<td class='timestamp'>8:17:45 PM</td>
-													<td class='step-details'><b>Clicking On Search Button </b></td>
+													<td class='timestamp'>8:44:09 PM</td>
+													<td class='step-details'><b>Click On Login Button </b></td>
 												</tr>
 												<tr class='log' status='info'>
 													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-													<td class='timestamp'>8:17:45 PM</td>
-													<td class='step-details'><b> <b>Clicking On Search Button </b> </b></td>
-												</tr>
-												<tr class='log' status='info'>
-													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-													<td class='timestamp'>8:17:49 PM</td>
-													<td class='step-details'><b>Expected Page Title= </b>Overview</td>
-												</tr>
-												<tr class='log' status='info'>
-													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-													<td class='timestamp'>8:17:49 PM</td>
-													<td class='step-details'><b>Actual Page Title= </b>Overview
-Switch to Discovery View</td>
+													<td class='timestamp'>8:44:10 PM</td>
+													<td class='step-details'><b> Application Lunched </b>		 [  <b>Value </b> = Application{url='https://frgtest.advalent.com', product='SUBRO_POINT'}  ]</td>
 												</tr>
 										</tbody>
 									</table>
@@ -278,9 +249,9 @@ Switch to Discovery View</td>
 				</li>
 				<li class='node level-1 leaf pass' status='pass' test-id='3'>
 					<div class='collapsible-header'>
-						<h5 class='node-name'>Test That View Event Page Contains Event Banner</h5>
-						<span class="node-time label grey lighten-1 white-text">Aug 14, 2018 08:17:49 PM</span>
-						<span class='node-duration label grey lighten-1 white-text'>0h 0m 0s+56ms</span>
+						<h5 class='node-name'>Test that user can login to application succesfully with correct credentials</h5>
+						<span class="node-time label grey lighten-1 white-text">Aug 15, 2018 08:44:15 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 0m 0s+861ms</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 						<div class='collapsible-body'>
@@ -296,7 +267,549 @@ Switch to Discovery View</td>
 										<tbody>
 												<tr class='log' status='info'>
 													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-													<td class='timestamp'>8:17:49 PM</td>
+													<td class='timestamp'>8:44:14 PM</td>
+													<td class='step-details'><b>Enter username </b>		 [  <b>Value </b> = sshrestha  ]</td>
+												</tr>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>8:44:15 PM</td>
+													<td class='step-details'><b>Enter Password </b>		 [  <b>Value </b> = EQN@1601  ]</td>
+												</tr>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>8:44:15 PM</td>
+													<td class='step-details'><b>Click On Login Button </b></td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='false' test-id='4'>
+					<div class='test-heading'>
+						<span class='test-name'>Global Search - Event/Incident Search Tab Test</span>
+						<span class='test-time'>Aug 15, 2018 08:44:23 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 15, 2018 08:44:23 PM</span>
+	<span class='label end-time'>Aug 15, 2018 08:45:54 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 30s+382ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:44:23 PM</td>
+					<td class='step-details'><h6> BEFORE SUITE: </h6></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:44:23 PM</td>
+					<td class='step-details'><b>Global Search - Event/Incident Search Tab Test started ! </b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:44:23 PM</td>
+					<td class='step-details'><b> Suite Name </b> =Global Search - Event/Incident Search Tab Test</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:44:23 PM</td>
+					<td class='step-details'><b>Created New Browser Instance </b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:44:26 PM</td>
+					<td class='step-details'><b> Application Lunched </b>		 [  <b>Value </b> = Application{url='https://frgtest.advalent.com', product='SUBRO_POINT'}  ]</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:44:34 PM</td>
+					<td class='step-details'><b>Enter username </b>		 [  <b>Value </b> = sshrestha  ]</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:44:34 PM</td>
+					<td class='step-details'><b>Enter Password </b>		 [  <b>Value </b> = EQN@1601  ]</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:44:35 PM</td>
+					<td class='step-details'><b>Click On Login Button </b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:44:45 PM</td>
+					<td class='step-details'><b>Getting Default Tab In Global Search Page </b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:46:02 PM</td>
+					<td class='step-details'><h6> AFTER SUITE: </h6></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:46:02 PM</td>
+					<td class='step-details'><b>Browser Instance Closed </b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:46:03 PM</td>
+					<td class='step-details'><h6> SUITE INFO: </h6></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:46:03 PM</td>
+					<td class='step-details'><b>Start Time  </b>=08:44:23</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:46:03 PM</td>
+					<td class='step-details'><b>Test End Time </b> =08:46:03</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:46:03 PM</td>
+					<td class='step-details'><b>Total Time Taken </b> =0:1:40</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='5'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Test That Event/Incident search tab is displayed by default</h5>
+						<span class="node-time label grey lighten-1 white-text">Aug 15, 2018 08:44:46 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 0m 0s+143ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>8:44:46 PM</td>
+													<td class='step-details'><b>Getting Default Tab In Global Search Page </b></td>
+												</tr>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>8:44:46 PM</td>
+													<td class='step-details'><b>Clicking On Clear Button </b></td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf fail' status='fail' test-id='6'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Test Search By Client Functionality</h5>
+						<span class="node-time label grey lighten-1 white-text">Aug 15, 2018 08:45:33 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 0m 12s+659ms</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>8:45:21 PM</td>
+													<td class='step-details'><b>Entering Client </b>		 [  <b>Value </b> = Automation_Client 4  ]</td>
+												</tr>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>8:45:22 PM</td>
+													<td class='step-details'><b>Clicking On Search Button </b></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>8:45:33 PM</td>
+													<td class='step-details'>Null Pointer Exception</td>
+												</tr>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>8:45:33 PM</td>
+													<td class='step-details'><b>Clicking On Clear Button </b></td>
+												</tr>
+										</tbody>
+									</table>
+										<ul class='screenshots'>
+												<li><img data-featherlight='screenshots\GlobalSearchPageTest.searchByClient[]_exception=NullPointerException.png' width='10%' src='screenshots\GlobalSearchPageTest.searchByClient[]_exception=NullPointerException.png' data-src='screenshots\GlobalSearchPageTest.searchByClient[]_exception=NullPointerException.png'></li>
+										</ul>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='7'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Test Search By EventId functionality</h5>
+						<span class="node-time label grey lighten-1 white-text">Aug 15, 2018 08:45:43 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 0m 1s+107ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>8:45:42 PM</td>
+													<td class='step-details'><b>Enter Event Id </b>		 [  <b>Value </b> = 56824  ]</td>
+												</tr>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>8:45:42 PM</td>
+													<td class='step-details'><b>Clicking On Search Button </b></td>
+												</tr>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>8:45:43 PM</td>
+													<td class='step-details'><b>Initial Table Data= </b>Event ID Event Status Event Type Total Charged Total Included Total Recovered Patient Name Patient DOB Patient ID Date of Loss Setup Type Created Date Incident ID Client Legacy ID</td>
+												</tr>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>8:45:43 PM</td>
+													<td class='step-details'><b>Table Data After Search= </b>Event ID Event Status Event Type Total Charged Total Included Total Recovered Patient Name Patient DOB Patient ID Date of Loss Setup Type Created Date Incident ID Client Legacy ID
+56824 Screen ILLNESS $113.00 $0.00 $0.00 Jonas Ro Smith 12/13/89 PID12399 01/02/18 Manual 12/11/17 Test Client 01
+56824 Screen ILLNESS $226.00 $0.00 $0.00 Test12 Update Member Update Test 12/13/89 Update Test C01BG01 EG 01 01/02/18 Manual 12/11/17 Test Client 01</td>
+												</tr>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>8:45:43 PM</td>
+													<td class='step-details'><b>Clicking On Clear Button </b></td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='8'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Test Search By EventOwner functionality</h5>
+						<span class="node-time label grey lighten-1 white-text">Aug 15, 2018 08:45:54 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 0m 2s+623ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>8:45:51 PM</td>
+													<td class='step-details'><b>Entering Event Owner </b>		 [  <b>Value </b> = Manish  ]</td>
+												</tr>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>8:45:53 PM</td>
+													<td class='step-details'><b>Clicking On Search Button </b></td>
+												</tr>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>8:45:54 PM</td>
+													<td class='step-details'><b>Initial Table Data= </b>Event ID Event Status Event Type Total Charged Total Included Total Recovered Patient Name Patient DOB Patient ID Date of Loss Setup Type Created Date Incident ID Client Legacy ID</td>
+												</tr>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>8:45:54 PM</td>
+													<td class='step-details'><b>Table Data After Search= </b>Event ID Event Status Event Type Total Charged Total Included Total Recovered Patient Name Patient DOB Patient ID Date of Loss Setup Type Created Date Incident ID Client Legacy ID
+56852 Screen UNKNOWN $0.00 $0.00 $0.00 JONATHA JAY 04/26/85 463491-46294 05/01/18 Incident 06/03/18 REF000041 CSP
+56845 Screen UNKNOWN $0.00 $0.00 $0.00 GABRI HAZEL 05/20/91 463491-149715 06/23/17 Incident 06/01/18 REF000033 CSP
+56842 Screen UNKNOWN $0.00 $0.00 $0.00 ANGEL U BAR 04/22/95 463491-13963029 01/01/18 Incident 04/16/18 REF000029 CSP
+56841 Screen UNKNOWN $0.00 $0.00 $0.00 Test Member 01 12/13/89 TC01-TB01-TE-01-TM01 04/01/18 Incident 04/13/18 REF000028 Test Client 01
+56832 Screen UNKNOWN $0.00 $0.00 $1,000.00 JIM M MADE 05/28/65 463491-240390 Incident 01/26/18 REF000005 CIP Medicare
+56831 Screen UNKNOWN $0.00 $0.00 $0.00 JOHNNY U LAU 11/03/01 463491-24512 Manual 01/15/18 REF000002 Test Client 01
+56825 Discovery AUTO $0.00 $0.00 $0.00 TestU MemberU 02 12/11/89 TC01-TB01-TE-01-TM01U 12/01/17 Manual 12/11/17 Test Client 01
+56824 Screen ILLNESS $113.00 $0.00 $0.00 Jonas Ro Smith 12/13/89 PID12399 01/02/18 Manual 12/11/17 Test Client 01
+45148 Screen DATALOAD $0.00 $0.00 $0.00 RANDY T VICTORI 01/13/47 463490-077270577 Incident 12/11/17 CIP (Run-Out)</td>
+												</tr>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>8:45:54 PM</td>
+													<td class='step-details'><b>Clicking On Clear Button </b></td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='false' test-id='9'>
+					<div class='test-heading'>
+						<span class='test-name'>View Event Page Test</span>
+						<span class='test-time'>Aug 15, 2018 08:46:03 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 15, 2018 08:46:03 PM</span>
+	<span class='label end-time'>Aug 15, 2018 08:47:53 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 49s+856ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:46:03 PM</td>
+					<td class='step-details'><h6> BEFORE SUITE: </h6></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:46:03 PM</td>
+					<td class='step-details'><b>View Event Page Test started ! </b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:46:03 PM</td>
+					<td class='step-details'><b> Suite Name </b> =View Event Page Test</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:46:03 PM</td>
+					<td class='step-details'><b>Created New Browser Instance </b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:46:05 PM</td>
+					<td class='step-details'><b> Application Lunched </b>		 [  <b>Value </b> = Application{url='https://frgtest.advalent.com', product='SUBRO_POINT'}  ]</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:46:16 PM</td>
+					<td class='step-details'><b>Enter username </b>		 [  <b>Value </b> = sshrestha  ]</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:46:16 PM</td>
+					<td class='step-details'><b>Enter Password </b>		 [  <b>Value </b> = EQN@1601  ]</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:46:16 PM</td>
+					<td class='step-details'><b>Click On Login Button </b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:46:38 PM</td>
+					<td class='step-details'><b>Getting Default Tab In Global Search Page </b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:48:23 PM</td>
+					<td class='step-details'><h6> AFTER SUITE: </h6></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:48:23 PM</td>
+					<td class='step-details'><b>Browser Instance Closed </b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:48:24 PM</td>
+					<td class='step-details'><h6> SUITE INFO: </h6></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:48:24 PM</td>
+					<td class='step-details'><b>Start Time  </b>=08:46:03</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:48:24 PM</td>
+					<td class='step-details'><b>Test End Time </b> =08:48:24</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:48:24 PM</td>
+					<td class='step-details'><b>Total Time Taken </b> =0:2:21</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:48:24 PM</td>
+					<td class='step-details'><h6> AFTER SUITE: </h6></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:48:24 PM</td>
+					<td class='step-details'><b>Browser Instance Closed </b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:48:24 PM</td>
+					<td class='step-details'><h6> SUITE INFO: </h6></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:48:24 PM</td>
+					<td class='step-details'><b>Start Time  </b>=08:46:03</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:48:24 PM</td>
+					<td class='step-details'><b>Test End Time </b> =08:48:24</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:48:24 PM</td>
+					<td class='step-details'><b>Total Time Taken </b> =0:2:21</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:48:24 PM</td>
+					<td class='step-details'><h6> AFTER SUITE: </h6></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:48:24 PM</td>
+					<td class='step-details'><b>Browser Instance Closed </b></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:48:24 PM</td>
+					<td class='step-details'><h6> SUITE INFO: </h6></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:48:24 PM</td>
+					<td class='step-details'><b>Start Time  </b>=08:46:03</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:48:24 PM</td>
+					<td class='step-details'><b>Test End Time </b> =08:48:24</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>8:48:24 PM</td>
+					<td class='step-details'><b>Total Time Taken </b> =0:2:21</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='10'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Test That Clicking On EventId Of Datagrid Navigates To View Event Page</h5>
+						<span class="node-time label grey lighten-1 white-text">Aug 15, 2018 08:47:07 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 0m 28s+860ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>8:46:38 PM</td>
+													<td class='step-details'><b>Entering Event Status </b>		 [  <b>Value </b> = Open  ]</td>
+												</tr>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>8:46:48 PM</td>
+													<td class='step-details'><b>Clicking On Search Button </b></td>
+												</tr>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>8:47:07 PM</td>
+													<td class='step-details'><b>Expected Page Title= </b>Overview</td>
+												</tr>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>8:47:07 PM</td>
+													<td class='step-details'><b>Actual Page Title= </b>Overview
+Switch to Discovery View</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='11'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Test That View Event Page Contains Event Banner</h5>
+						<span class="node-time label grey lighten-1 white-text">Aug 15, 2018 08:47:07 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 0m 0s+72ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>8:47:07 PM</td>
 													<td class='step-details'><b>Event Banner Is Displayed </b></td>
 												</tr>
 										</tbody>
@@ -304,11 +817,11 @@ Switch to Discovery View</td>
 								</div>
 						</div>
 				</li>
-				<li class='node level-1 leaf pass' status='pass' test-id='4'>
+				<li class='node level-1 leaf pass' status='pass' test-id='12'>
 					<div class='collapsible-header'>
 						<h5 class='node-name'>Test That View Included Claims Link is Available In Event Banner</h5>
-						<span class="node-time label grey lighten-1 white-text">Aug 14, 2018 08:17:49 PM</span>
-						<span class='node-duration label grey lighten-1 white-text'>0h 0m 0s+64ms</span>
+						<span class="node-time label grey lighten-1 white-text">Aug 15, 2018 08:47:07 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 0m 0s+57ms</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 						<div class='collapsible-body'>
@@ -324,7 +837,7 @@ Switch to Discovery View</td>
 										<tbody>
 												<tr class='log' status='info'>
 													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-													<td class='timestamp'>8:17:49 PM</td>
+													<td class='timestamp'>8:47:07 PM</td>
 													<td class='step-details'><b>View Included Claims Link Is Available   </b></td>
 												</tr>
 										</tbody>
@@ -332,11 +845,11 @@ Switch to Discovery View</td>
 								</div>
 						</div>
 				</li>
-				<li class='node level-1 leaf pass' status='pass' test-id='5'>
+				<li class='node level-1 leaf pass' status='pass' test-id='13'>
 					<div class='collapsible-header'>
 						<h5 class='node-name'>Test That Add Task Button is Available In Event Banner</h5>
-						<span class="node-time label grey lighten-1 white-text">Aug 14, 2018 08:17:49 PM</span>
-						<span class='node-duration label grey lighten-1 white-text'>0h 0m 0s+89ms</span>
+						<span class="node-time label grey lighten-1 white-text">Aug 15, 2018 08:47:07 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 0m 0s+68ms</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 						<div class='collapsible-body'>
@@ -352,7 +865,7 @@ Switch to Discovery View</td>
 										<tbody>
 												<tr class='log' status='info'>
 													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-													<td class='timestamp'>8:17:49 PM</td>
+													<td class='timestamp'>8:47:07 PM</td>
 													<td class='step-details'><b>Add Task Button Is Available   </b></td>
 												</tr>
 										</tbody>
@@ -360,10 +873,10 @@ Switch to Discovery View</td>
 								</div>
 						</div>
 				</li>
-				<li class='node level-1 leaf pass' status='pass' test-id='6'>
+				<li class='node level-1 leaf pass' status='pass' test-id='14'>
 					<div class='collapsible-header'>
 						<h5 class='node-name'>Test That Event Status DropDown Is Available In View Event Page</h5>
-						<span class="node-time label grey lighten-1 white-text">Aug 14, 2018 08:17:49 PM</span>
+						<span class="node-time label grey lighten-1 white-text">Aug 15, 2018 08:47:07 PM</span>
 						<span class='node-duration label grey lighten-1 white-text'>0h 0m 0s+51ms</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
@@ -380,7 +893,7 @@ Switch to Discovery View</td>
 										<tbody>
 												<tr class='log' status='info'>
 													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-													<td class='timestamp'>8:17:49 PM</td>
+													<td class='timestamp'>8:47:07 PM</td>
 													<td class='step-details'><b>Event Status DropDown Is Available   </b></td>
 												</tr>
 										</tbody>
@@ -388,11 +901,154 @@ Switch to Discovery View</td>
 								</div>
 						</div>
 				</li>
-				<li class='node level-1 leaf pass' status='pass' test-id='7'>
+				<li class='node level-1 leaf fail' status='fail' test-id='15'>
 					<div class='collapsible-header'>
 						<h5 class='node-name'>Test That Updating Event Status Field Update The Status Of Event</h5>
-						<span class="node-time label grey lighten-1 white-text">Aug 14, 2018 08:17:50 PM</span>
-						<span class='node-duration label grey lighten-1 white-text'>0h 0m 0s+447ms</span>
+						<span class="node-time label grey lighten-1 white-text">Aug 15, 2018 08:47:14 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 0m 6s+253ms</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>8:47:08 PM</td>
+													<td class='step-details'><b>Clicking On Switch To Discovery View Button </b></td>
+												</tr>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>8:47:13 PM</td>
+													<td class='step-details'><b>Expected Event Status= </b>Screen</td>
+												</tr>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>8:47:13 PM</td>
+													<td class='step-details'><b>Actual Event Status= </b> Open</td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>8:47:14 PM</td>
+													<td class='step-details'>Null Pointer Exception</td>
+												</tr>
+										</tbody>
+									</table>
+										<ul class='screenshots'>
+												<li><img data-featherlight='screenshots\ViewEventPageTest.testThatUpdatingEventStatusFieldUpdateTheStatusOfEvent[]_exception=AssertionError.png' width='10%' src='screenshots\ViewEventPageTest.testThatUpdatingEventStatusFieldUpdateTheStatusOfEvent[]_exception=AssertionError.png' data-src='screenshots\ViewEventPageTest.testThatUpdatingEventStatusFieldUpdateTheStatusOfEvent[]_exception=AssertionError.png'></li>
+										</ul>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf fail' status='fail' test-id='16'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Test That Clicking On Add Task Opens Task Tab</h5>
+						<span class="node-time label grey lighten-1 white-text">Aug 15, 2018 08:47:25 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 0m 10s+950ms</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>8:47:14 PM</td>
+													<td class='step-details'><b>Clicking On Add Task Button </b></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>8:47:25 PM</td>
+													<td class='step-details'><textarea>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="Table-task"]/tbody/tr[1]"}
+  (Session info: chrome=68.0.3440.106)
+  (Driver info: chromedriver=2.36.540470 (e522d04694c7ebea4ba8821272dbef4f9b818c91),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 19 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'DESKTOP-0N0GHKT', ip: '192.168.8.24', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_161'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.36.540470 (e522d04694c7ebea4ba8821272dbef4f9b818c91), userDataDir=C:\Users\manis\AppData\Local\Temp\scoped_dir2164_4574}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=68.0.3440.106, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=false, acceptInsecureCerts=false, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, setWindowRect=true, unexpectedAlertBehaviour=}]
+Session ID: 8f8427c44c850da35e6e9f55136c3779
+*** Element info: {Using=xpath, value=//*[@id="Table-task"]/tbody/tr[1]}
+	at sun.reflect.GeneratedConstructorAccessor15.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:500)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at com.advalent.automation.impl.component.datagrid.DataGrid.isFullyLoaded(DataGrid.java:98)
+	at com.advalent.automation.impl.pages.common.AbstractWebComponent$1.apply(AbstractWebComponent.java:59)
+	at com.advalent.automation.impl.pages.common.AbstractWebComponent$1.apply(AbstractWebComponent.java:55)
+	at org.openqa.selenium.support.ui.FluentWait$3.apply(FluentWait.java:207)
+	at org.openqa.selenium.support.ui.FluentWait$3.apply(FluentWait.java:205)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:205)
+	at com.advalent.automation.impl.pages.common.AbstractWebComponent.doWaitTillFullyLoaded(AbstractWebComponent.java:55)
+	at com.advalent.automation.impl.component.datagrid.DataGrid.<init>(DataGrid.java:21)
+	at com.advalent.automation.impl.pages.search.globalsearch.viewevent.taskstab.TaskTab.<init>(TaskTab.java:31)
+	at com.advalent.automation.components.EventBanner.clickOnAddTaskBtn(EventBanner.java:108)
+	at com.advalent.automation.test.subropoint.search.globalsearch.viewevent.ViewEventPageTest.testClickingOnAddTaskOpensTaskTab(ViewEventPageTest.java:102)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:72)
+	at org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)
+</textarea></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>8:47:25 PM</td>
+													<td class='step-details'>Null Pointer Exception</td>
+												</tr>
+										</tbody>
+									</table>
+										<ul class='screenshots'>
+												<li><img data-featherlight='screenshots\ViewEventPageTest.testClickingOnAddTaskOpensTaskTab[]_exception=TimeoutException.png' width='10%' src='screenshots\ViewEventPageTest.testClickingOnAddTaskOpensTaskTab[]_exception=TimeoutException.png' data-src='screenshots\ViewEventPageTest.testClickingOnAddTaskOpensTaskTab[]_exception=TimeoutException.png'></li>
+										</ul>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='17'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Test That Clicking Switch To Discovery View Opens Discovery Investigation Page</h5>
+						<span class="node-time label grey lighten-1 white-text">Aug 15, 2018 08:47:25 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 0m 0s+125ms</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 						<div class='collapsible-body'>
@@ -408,29 +1064,39 @@ Switch to Discovery View</td>
 										<tbody>
 												<tr class='log' status='info'>
 													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-													<td class='timestamp'>8:17:50 PM</td>
+													<td class='timestamp'>8:47:25 PM</td>
 													<td class='step-details'><b>Clicking On Switch To Discovery View Button </b></td>
-												</tr>
-												<tr class='log' status='info'>
-													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-													<td class='timestamp'>8:17:50 PM</td>
-													<td class='step-details'><b> <b>Clicking On Switch To Discovery View Button </b> </b></td>
-												</tr>
-												<tr class='log' status='info'>
-													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-													<td class='timestamp'>8:17:50 PM</td>
-													<td class='step-details'><b>Expected Event Status= </b>Screen</td>
-												</tr>
-												<tr class='log' status='info'>
-													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-													<td class='timestamp'>8:17:50 PM</td>
-													<td class='step-details'><b>Actual Event Status= </b> Open</td>
 												</tr>
 										</tbody>
 									</table>
-										<ul class='screenshots'>
-												<li><img data-featherlight='screenshots\ViewEventPageTest.testThatUpdatingEventStatusFieldUpdateTheStatusOfEvent[]_exception=AssertionError.png' width='10%' src='screenshots\ViewEventPageTest.testThatUpdatingEventStatusFieldUpdateTheStatusOfEvent[]_exception=AssertionError.png' data-src='screenshots\ViewEventPageTest.testThatUpdatingEventStatusFieldUpdateTheStatusOfEvent[]_exception=AssertionError.png'></li>
-										</ul>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='18'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Test That Clicking on Switch to Event/Case View Opens View Event Page</h5>
+						<span class="node-time label grey lighten-1 white-text">Aug 15, 2018 08:47:53 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 0m 0s+2ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='info'>
+													<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+													<td class='timestamp'>8:47:53 PM</td>
+													<td class='step-details'><b>Clicking On Switch To Event/Case View Button </b></td>
+												</tr>
+										</tbody>
+									</table>
 								</div>
 						</div>
 				</li>
@@ -470,10 +1136,10 @@ Switch to Discovery View</td>
 					<canvas id='parent-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>6</span> test(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='80%'><span class='strong'>12</span> test(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='20%'>3</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -488,7 +1154,7 @@ Switch to Discovery View</td>
 					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> step(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='100%'>14</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='10%'>4</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='90%'>36</span> others
 				</div>
 			</div>
 		</div>
@@ -498,6 +1164,123 @@ Switch to Discovery View</td>
 </div>
 <!-- test view -->
 <!-- category view -->
+<div id='exception-view' class='view hide'>
+
+    <section id='controls'>
+        <div class='controls grey lighten-4'>
+            <!-- search -->
+            <div class='chip transparent' alt='Search Tests' title='Search Tests'>
+                <a href="#" class='search-div'>
+                    <i class='material-icons'>search</i> Search
+                </a>
+
+                <div class='input-field left hide'>
+                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+                </div>
+
+            </div>
+            <!-- search -->
+        </div>
+    </section>
+
+    <div class='subview-left left'>
+
+        <div class='view-summary'>
+            <h5>Exceptions</h3>
+                <ul id='exception-collection' class='exception-collection'>
+
+                        <li class='exception displayed active'>
+                            <div class='exception-heading'>
+                                <span class='exception-name'>org.openqa.selenium.NoSuchElementException</span>
+                                <span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
+                            </div>
+                            <div class='exception-content hide'>
+                                <div class='exception-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                    <tr>
+                                                        <td>Aug 15, 2018 08:47:14 PM</td>
+                                                        <td class='linked' test-id='16'>View Event Page Test.Test That Clicking On Add Task Opens Task Tab</td>
+                                                        <td><pre><textarea>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="Table-task"]/tbody/tr[1]"}
+  (Session info: chrome=68.0.3440.106)
+  (Driver info: chromedriver=2.36.540470 (e522d04694c7ebea4ba8821272dbef4f9b818c91),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 19 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'DESKTOP-0N0GHKT', ip: '192.168.8.24', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_161'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.36.540470 (e522d04694c7ebea4ba8821272dbef4f9b818c91), userDataDir=C:\Users\manis\AppData\Local\Temp\scoped_dir2164_4574}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=68.0.3440.106, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=false, acceptInsecureCerts=false, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, setWindowRect=true, unexpectedAlertBehaviour=}]
+Session ID: 8f8427c44c850da35e6e9f55136c3779
+*** Element info: {Using=xpath, value=//*[@id="Table-task"]/tbody/tr[1]}
+	at sun.reflect.GeneratedConstructorAccessor15.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:500)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at com.advalent.automation.impl.component.datagrid.DataGrid.isFullyLoaded(DataGrid.java:98)
+	at com.advalent.automation.impl.pages.common.AbstractWebComponent$1.apply(AbstractWebComponent.java:59)
+	at com.advalent.automation.impl.pages.common.AbstractWebComponent$1.apply(AbstractWebComponent.java:55)
+	at org.openqa.selenium.support.ui.FluentWait$3.apply(FluentWait.java:207)
+	at org.openqa.selenium.support.ui.FluentWait$3.apply(FluentWait.java:205)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:205)
+	at com.advalent.automation.impl.pages.common.AbstractWebComponent.doWaitTillFullyLoaded(AbstractWebComponent.java:55)
+	at com.advalent.automation.impl.component.datagrid.DataGrid.<init>(DataGrid.java:21)
+	at com.advalent.automation.impl.pages.search.globalsearch.viewevent.taskstab.TaskTab.<init>(TaskTab.java:31)
+	at com.advalent.automation.components.EventBanner.clickOnAddTaskBtn(EventBanner.java:108)
+	at com.advalent.automation.test.subropoint.search.globalsearch.viewevent.ViewEventPageTest.testClickingOnAddTaskOpensTaskTab(ViewEventPageTest.java:102)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:72)
+	at org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)
+</textarea></pre></td>
+                                                    </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                </ul>
+        </div>
+    </div>
+
+    <div class='subview-right left'>
+        <div class='view-summary'>
+            <h5 class='exception-name'></h5>
+        </div>
+    </div>
+</div>
 <!-- exception view -->
 <div id='dashboard-view' class='view hide'>
 	<div class='card-panel transparent np-v'>
@@ -507,31 +1290,31 @@ Switch to Discovery View</td>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Tests
-					<div class='panel-lead'>6</div>
+					<div class='panel-lead'>15</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>14</div>
+					<div class='panel-lead'>40</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Aug 14, 2018 08:17:19 PM</div>
+					<div class='panel-lead'>Aug 15, 2018 08:43:55 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Aug 14, 2018 08:17:52 PM</div>
+			 		<div class='panel-lead'>Aug 15, 2018 08:48:24 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>0h 0m 32s+896ms</div>
+					<div class='panel-lead'>0h 4m 29s+402ms</div>
 				</div>
 			</div>
 		</div>
@@ -544,22 +1327,22 @@ Switch to Discovery View</td>
 
 		<script>
 			var statusGroup = {
-				passParent: 6,
-				failParent: 0,
+				passParent: 12,
+				failParent: 3,
 				fatalParent: 0,
 				errorParent: 0,
 				warningParent: 0,
 				skipParent: 0,
-				exceptionsParent: 0,
+				exceptionsParent: 3,
 				
 				passChild: 0,
-				failChild: 0,
+				failChild: 4,
 				fatalChild: 0,
 				errorChild: 0,
 				warningChild: 0,
 				skipChild: 0,
-				infoChild: 14,
-				exceptionsChild: 0,
+				infoChild: 36,
+				exceptionsChild: 4,
 				
 				passGrandChild: 0,
 				failGrandChild: 0,

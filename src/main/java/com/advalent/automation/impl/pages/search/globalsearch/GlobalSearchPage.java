@@ -5,6 +5,7 @@ import com.advalent.automation.api.components.tab.ITab;
 import com.advalent.automation.api.components.tab.ITabPanel;
 import com.advalent.automation.api.constants.TimeOuts;
 import com.advalent.automation.api.features.IAmLandingPage;
+import com.advalent.automation.impl.component.Tabs;
 import com.advalent.automation.impl.pages.common.AdvalentPage;
 import com.advalent.automation.impl.pages.search.globalsearch.viewevent.ViewEventPage;
 import org.openqa.selenium.WebDriver;
@@ -14,10 +15,12 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class GlobalSearchPage extends AdvalentPage implements ITabPanel, IAmLandingPage {
     @FindBy(xpath = "//*[@id='content']/div[3]/div/div/h1")
-    WebElement pageTitle ;
+    WebElement pageTitle;
+
     public GlobalSearchPage(WebDriver driver) {
         super(driver);
     }
@@ -53,14 +56,14 @@ public class GlobalSearchPage extends AdvalentPage implements ITabPanel, IAmLand
     }
 
 
-
     @Override
-    public List<Class> getAvailableTabs() {
-        return Arrays.asList(EventIncidentSearchTab.class, MemberSearchTab.class);
+    public List<String> getAvailableTabs() {
+        return Arrays.asList(EventIncidentSearchTab.class, MemberSearchTab.class).stream().map(clazz ->
+                (PageFactory.initElements(getDriver(), clazz)).getTabName()).collect(Collectors.toList());
     }
 
     @Override
-    public <T extends ITab> T clickOnTab(Class<T> tabClass) {
+    public <T extends ITab> T clickOnTab(Tabs tab) {
 
         return null;
     }

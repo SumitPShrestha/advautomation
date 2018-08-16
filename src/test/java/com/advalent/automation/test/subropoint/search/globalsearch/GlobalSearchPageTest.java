@@ -21,7 +21,7 @@ import static org.fest.assertions.Assertions.assertThat;
  * */
 
 @Test(groups = {"Global Search", "Search"}, description = "Global Search - Event/Incident Search Tab Test")
-public class GlobasSearchPageTest extends AbstractSearchTest {
+public class GlobalSearchPageTest extends AbstractSearchTest {
     GlobalSearchPage globalSearchPage;
 
     EventIncidentSearchTab eventIncidentSearchTab;

@@ -6,10 +6,12 @@ import com.advalent.automation.api.components.tab.ITab;
 import com.advalent.automation.api.components.tab.ITabPanel;
 import com.advalent.automation.components.EventBanner;
 import com.advalent.automation.components.inputelements.DropDown;
+import com.advalent.automation.impl.component.Tabs;
 import com.advalent.automation.impl.pages.common.AdvalentPage;
 import com.advalent.automation.impl.pages.search.globalsearch.viewevent.discovery.DiscoveryEventPage;
 import com.advalent.automation.impl.pages.search.globalsearch.viewevent.discovery.DiscoveryInvestigationTab;
-import com.advalent.automation.impl.pages.search.globalsearch.viewevent.overviewtab.OverviewTab;
+import com.advalent.automation.impl.pages.search.globalsearch.viewevent.taskstab.ViewEventTabs;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,6 +19,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ViewEventPage extends AdvalentPage implements ITabPanel {
     @FindBy(xpath = "//*[@id=\"content\"]/div[3]/div/form/div[2]/div[1]/div/div/div/div[1]/div/ng-form/h4")
@@ -68,14 +71,17 @@ public class ViewEventPage extends AdvalentPage implements ITabPanel {
     }
 
     @Override
-    public List<Class> getAvailableTabs() {
-        return Arrays.asList(OverviewTab.class);
+    public List<String> getAvailableTabs() {
+        return Arrays.stream(ViewEventTabs.values()).map(t ->
+                getDriver().findElement(By.id(t.getTabName())).isDisplayed() ? t.getTabName() : null
+        ).collect(Collectors.toList());
     }
 
     @Override
-    public <T extends ITab> T clickOnTab(Class<T> tabClass) {
-        T tab = PageFactory.initElements(getDriver(), tabClass);
-        return tab;
+    public <T extends ITab> T clickOnTab(Tabs tab) {
+        getDriver().findElement(By.id(tab.getTabName())).click();
+        Class<T> tabClass = tab.getTabClass();
+        return PageFactory.initElements(getDriver(), tabClass);
     }
 
     @Override

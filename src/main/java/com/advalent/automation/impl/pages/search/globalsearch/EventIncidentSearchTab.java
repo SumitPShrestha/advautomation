@@ -205,7 +205,7 @@ public class EventIncidentSearchTab extends AbstractSearchPage implements ITab {
         this.enterEventStatus(status);
         this.dataGrid = this.clickOnSearchButton();
         this.clickOnOkOfWarning();
-        dataGrid.clickOnFirstRow();
+        dataGrid.clickOnColumnOfRow(1, 1);
         ViewEventPage viewEventPage = new ViewEventPage(getDriver());
         viewEventPage.doWaitTillFullyLoaded(TimeOuts.THREE_SECONDS);
         return viewEventPage;

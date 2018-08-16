@@ -13,6 +13,7 @@ users {
                 password "EQN@1601"
                 role['user']
             }
+
         }
         stage(name: 'DEV') {
             user(automationId: "SUBRO DEV USER") {

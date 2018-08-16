@@ -1,8 +1,13 @@
 package com.advalent.automation.impl.utils;
 
+import com.advalent.automation.api.components.tab.ITab;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -38,4 +43,20 @@ public class ReflectionUtils {
         return ((MethodSignature) thisJoinPoint.getSignature()).getMethod();
     }
 
+    public static <T extends ITab> Object getTabObject(Class<T> tabClass, WebDriver driver) {
+        try {
+            Constructor c = tabClass.getConstructor(WebElement.class);
+            return c.newInstance(driver);
+
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

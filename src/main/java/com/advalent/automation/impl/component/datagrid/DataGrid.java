@@ -1,20 +1,14 @@
 package com.advalent.automation.impl.component.datagrid;
 
 import com.advalent.automation.api.components.datagrid.IDataGrid;
-import com.advalent.automation.api.components.loadingcomponent.ILoadingComponent;
 import com.advalent.automation.api.constants.TimeOuts;
-import com.advalent.automation.components.webelement.WebElements;
 import com.advalent.automation.impl.pages.common.AbstractWebComponent;
-import com.advalent.automation.impl.pages.search.globalsearch.viewevent.ViewEventPage;
 import com.advalent.automation.impl.utils.WaitUtils;
 import com.google.common.base.Predicate;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -66,7 +60,7 @@ public class DataGrid extends AbstractWebComponent implements IDataGrid {
     @Override
     public <T> T clickOnColumnOfRowExpectingPage(Class<T> expectedClass, int rowIndex, int colIndex) {
         T pageInstance = PageFactory.initElements(driver, expectedClass);
-        this.clickOnComumnOfRow(rowIndex, colIndex);
+        this.clickOnColumnOfRow(rowIndex, colIndex);
         return pageInstance;
     }
 
@@ -75,8 +69,8 @@ public class DataGrid extends AbstractWebComponent implements IDataGrid {
         getDriver().findElement(By.xpath(this.locator + "/tbody/tr[" + rowIndex + "]")).click();
     }
 
-    public void clickOnComumnOfRow(int rowIndex, int colIndex) {
-        getDriver().findElement(By.xpath(this.locator + "/tbody/tr[" + rowIndex + "]/td[" + colIndex + "]")).click();
+    public void clickOnColumnOfRow(int rowIndex, int colIndex) {
+        getDriver().findElement(By.xpath(this.locator + "/tbody/tr[" + rowIndex + "]/td[" + colIndex + "]/span/a")).click();
     }
 
 
