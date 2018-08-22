@@ -45,10 +45,10 @@ public class DiscoveryEventPage extends AdvalentPage implements ITabPanel {
     public DropDown investigationSource;
 
     @CustomElement(xpath = "//*[@id=\"LossDetails\"]")
-    public DropDown lossDetails;
+    public TextBox lossDetails;
 
     @CustomElement(xpath = "//*[@id=\"InjuryDescription\"]")
-    public DropDown injuryDescription;
+    public TextBox injuryDescription;
 
 
     //ToDo EventCaseViewPage Page Object
@@ -57,7 +57,6 @@ public class DiscoveryEventPage extends AdvalentPage implements ITabPanel {
         switchToEventCaseViewBtn.click();
         return new ViewEventPage(getDriver());
     }
-
 
     @CustomElement(xpath = "//*[@id=\"EventStatus\"]")
     public DropDown eventStatus;

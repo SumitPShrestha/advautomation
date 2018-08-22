@@ -22,7 +22,7 @@ public abstract class InputElement extends AbstractWebComponent {
         return this;
     }
 
-    ;
+
 
     public InputElement clearValue() {
         element.clear();
@@ -31,6 +31,10 @@ public abstract class InputElement extends AbstractWebComponent {
 
     public String getValue() {
         return element.getText();
+    }
+
+    public String getFieldValue(){
+        return element.getAttribute("value");
     }
 
     public InputElement selectOption(String option) {
