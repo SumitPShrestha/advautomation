@@ -17,7 +17,7 @@ import static org.fest.assertions.Assertions.assertThat;
 /*
  * author sshrestha
  * */
-
+@Test(groups = {"View Event", "Over View Tab"}, description = "Over View Tab Test")
 public class OverviewTabTest extends BaseTest {
     EventIncidentSearchTab eventIncidentSearchTab;
     IDataGrid eventIncidentTabDataGrid;
@@ -30,13 +30,16 @@ public class OverviewTabTest extends BaseTest {
         super.setUp();
         GlobalSearchPage searchPage = navigationBar.navigateTo(GlobalSearchPage.class, TimeOuts.FIVE_SECONDS);
         eventIncidentSearchTab = (EventIncidentSearchTab) searchPage.getDefaultTab();
-        eventIncidentSearchTab.searchBy(eventIncidentSearchTab.eventStatus, "OPEN", TimeOuts.FIVE_SECONDS);
-        eventIncidentTabDataGrid = eventIncidentSearchTab.getDataGrid();
-        viewEventPage = eventIncidentTabDataGrid.clickOnColumnOfRowExpectingPage(ViewEventPage.class,1,1);
-//        viewEventPage = eventIncidentSearchTab.clickOnFirstRowOfDataGrid();
+        eventIncidentSearchTab.enterEventStatus("Open").clickOnSearchButton();
+        IDataGrid dataGrid = eventIncidentSearchTab.clickOnOkOfWarning();
+        viewEventPage = dataGrid.clickOnColumnOfRowExpectingPage(ViewEventPage.class, 1, 1);
+        viewEventPage.doWaitTillFullyLoaded(TimeOuts.FIVE_SECONDS);
+//        eventIncidentSearchTab.searchBy(eventIncidentSearchTab.eventStatus, "OPEN", TimeOuts.FIVE_SECONDS);
+//        eventIncidentTabDataGrid = eventIncidentSearchTab.getDataGrid();
+//        viewEventPage = eventIncidentTabDataGrid.clickOnColumnOfRowExpectingPage(ViewEventPage.class, 1, 1);
     }
 
-    @Test(description = "Test That Overview Tab Is Loaded By Default")
+    @Test(description = "Test That Overview Tab Is Loaded By Default", priority = 1)
     public void testThatDiscoveryInvestigationIsLoadedByDefault() {
         overviewTab = (OverviewTab) viewEventPage.getDefaultTab();
         String expectedTabTitle = overviewTab.getPageTitle();
@@ -62,6 +65,7 @@ public class OverviewTabTest extends BaseTest {
         overviewTab = eventOwnershipModal.clickOnCloseBtn();
 
     }
+
     @Test(description = "Test That Clicking On Lien Process Opens Lien Process Information Model")
     public void testThatClickingOnLienProcessBtnOpensLienProcessInformationModel() {
         LienProcessingModal lienProcessingModal = overviewTab.clickOnLienProcessingBtn();

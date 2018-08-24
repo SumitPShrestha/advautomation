@@ -17,6 +17,9 @@ public class DiscoveryInvestigationTab extends AdvalentPage implements ITab {
     @FindBy(xpath = "//*[@id=\"content\"]/div[3]/div/form/div[2]/div[1]/div/div/div/div[1]/div/ng-form/div/div[1]/div/div/div[1]/div[1]")
     WebElement pageTitle;
 
+    @FindBy(xpath = "//*[@id=\"Discovery Investigation\"]")
+    WebElement tabTitle;
+
     @FindBy(xpath = "//*[@id=\"content\"]/div[3]/div/form/div[2]/div[1]/div/div/div/div[1]/div/ng-form/h4/div/i/span")
     WebElement switchToEventCaseViewBtn;
 
@@ -112,6 +115,6 @@ public class DiscoveryInvestigationTab extends AdvalentPage implements ITab {
 
     @Override
     public String getDisplayedTabTitle() {
-        return pageTitle.getText();
+        return tabTitle.getText();
     }
 }

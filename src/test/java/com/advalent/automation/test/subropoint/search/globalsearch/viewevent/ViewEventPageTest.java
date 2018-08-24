@@ -29,15 +29,15 @@ public class ViewEventPageTest extends BaseTest {
         super.setUp();
         GlobalSearchPage globalSearchPage = navigationBar.navigateTo(GlobalSearchPage.class, TimeOuts.THREE_SECONDS);
         eventIncidentSearchTab = (EventIncidentSearchTab) globalSearchPage.getDefaultTab();
-
-    }
-
-    @Test(description = "Test That Clicking On EventId Of Datagrid Navigates To View Event Page", priority = 1)
-    public void testThatClickingOnEventIdOfDataGridNavigatesToViewEventPage() {
         eventIncidentSearchTab.enterEventStatus("Open").clickOnSearchButton();
         IDataGrid dataGrid = eventIncidentSearchTab.clickOnOkOfWarning();
         viewEventPage = dataGrid.clickOnColumnOfRowExpectingPage(ViewEventPage.class, 1, 1);
         viewEventPage.doWaitTillFullyLoaded(TimeOuts.FIVE_SECONDS);
+
+    }
+
+    @Test(description = "Test That Clicking On EventId Of DataGrid Navigates To View Event Page", priority = 1)
+    public void testThatClickingOnEventIdOfDataGridNavigatesToViewEventPage() {
         String expectedTitle = "Overview";
         String actualPageTitle = viewEventPage.getDisplayedPageTitle();
         ExtentHTMLReportManager.getInstance().addStep("Expected Page Title", expectedTitle);
@@ -48,14 +48,14 @@ public class ViewEventPageTest extends BaseTest {
     @Test(description = "Test That View Event Page Contains Event Banner", priority = 2)
     public void testThatViewEventPageContainsEventBanner() {
         eventBanner = viewEventPage.getEventBanner();
-        boolean isEventBanerDisplayed = eventBanner.isFullyLoaded();
-        ExtentHTMLReportManager.getInstance().addStep(isEventBanerDisplayed ? "Event Banner Is Displayed" : "Event Banner Is Not Displayed");
-        assertThat(isEventBanerDisplayed).isTrue();
+        boolean isEventBannerDisplayed = eventBanner.isFullyLoaded();
+        ExtentHTMLReportManager.getInstance().addStep(isEventBannerDisplayed ? "Event Banner Is Displayed" : "Event Banner Is Not Displayed");
+        assertThat(isEventBannerDisplayed).isTrue();
     }
 
 
     @Test(description = "Test That View Included Claims Link is Available In Event Banner", priority = 3)
-    public void testThatViewIncludedClaimsLinkisDisplayedInEventBanner() {
+    public void testThatViewIncludedClaimsLinkIsDisplayedInEventBanner() {
         boolean isViewIncludedClaimsBtnDisplayed = eventBanner.viewIncludedClaimsBtn.isDisplayed();
         boolean isViewIncludedClaimsBtnEnabled = eventBanner.viewIncludedClaimsBtn.isEnabled();
         ExtentHTMLReportManager.getInstance().addStep(isViewIncludedClaimsBtnDisplayed && isViewIncludedClaimsBtnEnabled ?
@@ -88,11 +88,11 @@ public class ViewEventPageTest extends BaseTest {
         viewEventPage.clickOnGoBtn();
         String displayedEventStatus = viewEventPage.getEventBanner().getEventStatus();
         ExtentHTMLReportManager.getInstance().addStep("Expected Event Status", updatedEventStatus);
-        ExtentHTMLReportManager.getInstance().addStep("Actual Event Status", displayedEventStatus);
+        ExtentHTMLReportManager.getInstance().addStep("Actual Event Status", displayedEventStatus );
         assertThat(updatedEventStatus).isEqualTo(displayedEventStatus).as("Displayed Event Status Should Be Same As Expected");
-        String updateBackEventStatus = "Open";
+       /* String updateBackEventStatus = "Open";
         viewEventPage.eventStatus.selectOption(updateBackEventStatus);
-        viewEventPage.clickOnGoBtn();
+        viewEventPage.clickOnGoBtn();*/
 
     }
 
@@ -112,19 +112,7 @@ public class ViewEventPageTest extends BaseTest {
         discoveryEventPage.doWaitTillFullyLoaded(TimeOuts.FIVE_SECONDS);
 
         String actualTitle = discoveryEventPage.getDisplayedPageTitle();
-        ;
         String expectedTitle = discoveryEventPage.getPageTitle();
-
-        assertThat(actualTitle).contains(expectedTitle).as("Expected and Actual Title should Be Same");
-    }
-
-    @Test(description = "Test That Clicking on Switch to Event/Case View Opens View Event Page", priority = 8)
-    public void testClickingOnSwitchToEventCaseViewOpensViewEventPage() {
-        viewEventPage = discoveryEventPage.clickOnSwitchToEventCaseViewBtn();
-        viewEventPage.doWaitTillFullyLoaded(TimeOuts.THREE_SECONDS);
-        viewEventPage.doWaitTillFullyLoaded(TimeOuts.FIVE_SECONDS);
-        String actualTitle = viewEventPage.getDisplayedPageTitle();
-        String expectedTitle = viewEventPage.getPageTitle();
         assertThat(actualTitle).contains(expectedTitle).as("Expected and Actual Title should Be Same");
     }
 

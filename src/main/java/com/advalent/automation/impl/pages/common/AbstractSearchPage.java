@@ -5,7 +5,6 @@ import com.advalent.automation.api.components.datagrid.IDataGrid;
 import com.advalent.automation.api.components.search.ISearchPage;
 import com.advalent.automation.api.constants.TimeOuts;
 import com.advalent.automation.components.inputelements.*;
-import com.advalent.automation.impl.component.datagrid.DatGridLoadingComponent;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -49,7 +48,7 @@ public abstract class AbstractSearchPage extends AbstractWebComponent implements
     public IDataGrid clickOnSearchButton() {
         logger.info("clicking on search button of {} page", this.getClass());
         getSearchButton().click();
-        if (!isWarningDailogDisplayed()) {
+        if (!isWarningDetailLogDisplayed()) {
             return this.getDataGrid().waitTillDataIsLoaded(TimeOuts.THREE_SECONDS);
         } else {
             return this.getDataGrid();
@@ -83,6 +82,9 @@ public abstract class AbstractSearchPage extends AbstractWebComponent implements
             inputElement.enterValue(value);
         }
         getSearchButton().click();
+        if(isWarningDetailLogDisplayed()){
+            clickOnOkOfWarning();
+        }
         this.getDataGrid().waitTillDataIsLoaded(waitTime);
     }
 
@@ -99,7 +101,7 @@ public abstract class AbstractSearchPage extends AbstractWebComponent implements
 
     }
 
-    public boolean isWarningDailogDisplayed() {
+    public boolean isWarningDetailLogDisplayed() {
         try {
             return warningOkBtn.isDisplayed();
         } catch (NoSuchElementException e) {

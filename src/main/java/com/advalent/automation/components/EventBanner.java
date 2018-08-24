@@ -93,7 +93,7 @@ public class EventBanner extends AbstractWebComponent {
 */
 
     public String getEventStatus() {
-        return getDriver().findElement(By.xpath("//*[@id=\"content\"]/div[3]/div/form/div[1]/div/div[1]")).getText().split("\n")[1].split(":")[1];
+        return getDriver().findElement(By.xpath("//*[@id=\"content\"]/div[3]/div/form/div[1]/div/div[1]")).getText().split("\n")[1].split(":")[1].trim();
     }
 
     @Override
