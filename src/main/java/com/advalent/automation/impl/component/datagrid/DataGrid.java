@@ -2,6 +2,8 @@ package com.advalent.automation.impl.component.datagrid;
 
 import com.advalent.automation.api.components.datagrid.IDataGrid;
 import com.advalent.automation.api.constants.TimeOuts;
+import com.advalent.automation.impl.component.pagination.IHavePaginationComponent;
+import com.advalent.automation.impl.component.pagination.PaginationComponent;
 import com.advalent.automation.impl.pages.common.AbstractWebComponent;
 import com.advalent.automation.impl.utils.WaitUtils;
 import com.google.common.base.Predicate;
@@ -12,13 +14,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class DataGrid extends AbstractWebComponent implements IDataGrid {
+public class DataGrid extends AbstractWebComponent implements IDataGrid, IHavePaginationComponent {
     protected final String locator;
+    private PaginationComponent paginationComponent;
 
     public DataGrid(WebDriver driver, String locator) {
         super(driver);
         this.locator = locator;
         this.doWaitTillFullyLoaded(TimeOuts.TEN_SECONDS);
+        this.paginationComponent = new PaginationComponent(driver);
     }
 
     private boolean isDataLoaded() {
@@ -99,4 +103,8 @@ public class DataGrid extends AbstractWebComponent implements IDataGrid {
     }
 
 
+    @Override
+    public PaginationComponent getPaginationComponent() {
+        return paginationComponent;
+    }
 }

@@ -1,4 +1,4 @@
-package com.advalent.automation.components;
+package com.advalent.automation.impl.component;
 
 import com.advalent.automation.api.annotations.LogStep;
 import com.advalent.automation.impl.pages.common.AbstractWebComponent;

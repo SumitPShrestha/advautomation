@@ -2,16 +2,13 @@ package com.advalent.automation.impl.pages.search.globalsearch.viewevent.casecor
 
 import com.advalent.automation.api.annotations.LogStep;
 import com.advalent.automation.api.annotations.inputfield.CustomElement;
-import com.advalent.automation.components.inputelements.AutoSuggest;
-import com.advalent.automation.components.inputelements.DropDown;
-import com.advalent.automation.components.inputelements.TextBox;
+import com.advalent.automation.impl.component.inputelements.AutoSuggest;
+import com.advalent.automation.impl.component.inputelements.DropDown;
+import com.advalent.automation.impl.component.inputelements.TextBox;
 import com.advalent.automation.impl.pages.common.AbstractWebComponent;
-import groovy.util.logging.Log;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
-import javax.xml.soap.Text;
 
 public class CaseCorrespondenceSection extends AbstractWebComponent {
 

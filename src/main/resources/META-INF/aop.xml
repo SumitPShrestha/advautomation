@@ -2,7 +2,7 @@
     <aspects>
         <!--<aspect name="com.advalent.automation.aspects.ReportingAspect"/>-->
         <aspect name="com.advalent.automation.aspects.TestStepsAspect"/>
-        <aspect name="com.advalent.automation.components.webelement.CustomElementInitializer"/>
+        <aspect name="com.advalent.automation.impl.component.webelement.CustomElementInitializer"/>
     </aspects>
     <weaver>
         <!-- make sure that we only weave aspects inside our project -->

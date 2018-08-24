@@ -62,11 +62,7 @@ public class GlobalSearchPage extends AdvalentPage implements ITabPanel, IAmLand
                 (PageFactory.initElements(getDriver(), clazz)).getTabName()).collect(Collectors.toList());
     }
 
-    @Override
-    public <T extends ITab> T clickOnTab(Tabs tab) {
 
-        return null;
-    }
 
     @Override
     public String getPageUrl() {

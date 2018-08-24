@@ -1,19 +1,21 @@
-package com.advalent.automation.impl.pages.search.globalsearch.viewevent.patientinfotab;
+package com.advalent.automation.impl.pages.search.globalsearch.viewevent.memberinformation.patientinfotab;
 
 import com.advalent.automation.api.annotations.inputfield.CustomElement;
 import com.advalent.automation.api.components.datagrid.IDataGrid;
 import com.advalent.automation.api.components.tab.ITab;
-import com.advalent.automation.components.inputelements.AutoSuggest;
-import com.advalent.automation.components.inputelements.DropDown;
-import com.advalent.automation.components.inputelements.TextBox;
+import com.advalent.automation.impl.component.inputelements.AutoSuggest;
+import com.advalent.automation.impl.component.inputelements.DropDown;
+import com.advalent.automation.impl.component.inputelements.TextBox;
 import com.advalent.automation.impl.component.datagrid.DataGrid;
+import com.advalent.automation.impl.pages.common.AbstractWebComponent;
 import com.advalent.automation.impl.pages.common.AdvalentPage;
+import com.advalent.automation.impl.pages.search.globalsearch.viewevent.memberinformation.DemographicSection;
 import javafx.scene.control.CheckBox;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class PatientInfoTab extends AdvalentPage implements ITab {
+public class PatientInformationTab extends AbstractWebComponent implements ITab {
 
     IDataGrid dataGrid;
 
@@ -29,53 +31,8 @@ public class PatientInfoTab extends AdvalentPage implements ITab {
     @FindBy(xpath = "//*[@id=\"resetQA\"]")
     WebElement clearBtn;
 
+    DemographicSection demographicSection;
     //Demographics
-    @CustomElement(xpath = "//*[@id=\"DamagedPartyFirstName\"]")
-    public TextBox patientFirstName;
-
-    @CustomElement(xpath = "//*[@id=\"DamagedPartyMiddleName\"]")
-    public TextBox patientMiddleName;
-
-    @CustomElement(xpath = "//*[@id=\"DamagedPartyLastName\"]")
-    public TextBox patientLastName;
-
-    @CustomElement(xpath = "//*[@id=\"DamagedPartySuffix\"]")
-    public TextBox patientSuffix;
-
-    @CustomElement(xpath = "//*[@id=\"DamagedPartyBirthDate\"]")
-    public TextBox patientDateOfBirth;
-
-    @CustomElement(xpath = "//*[@id=\"DamagedPartyRelationship\"]")
-    public DropDown patientRelationshipCode;
-
-    @CustomElement(xpath = "//*[@id=\"DamagedPartySSN\"]")
-    public TextBox patientSSN;
-
-    @CustomElement(xpath = "//*[@id=\"DamagedPartyAge\"]")
-    public TextBox patientAge;
-
-    //Disabled
-   /* @CustomElement(xpath = "")
-    public TextBox patientAge;*/
-
-    @CustomElement(xpath = "//*[@id=\"DamagedPartyID\"]")
-    public TextBox patientID;
-
-    @CustomElement(xpath = "//*[@id=\"DamagedPartyGender\"]")
-    public DropDown patientGender;
-
-    @CustomElement(xpath = "//*[@id=\"DamagedPartyIsPolicy\"]")
-    public CheckBox isPolicyHolder;
-
-    @CustomElement(xpath = "//*[@id=\"PayerKey\"]")
-    public TextBox clientPartyId;
-
-    @CustomElement(xpath = "//*[@id=\"IsMemberDeceased\"]")
-    public TextBox isPatientDeceased;
-
-    @CustomElement(xpath = "//*[@id=\"DamagedPartyStillTreating\"]")
-    public TextBox isPatientStillTreating;
-
 
     //Contact Information
 
@@ -110,7 +67,7 @@ public class PatientInfoTab extends AdvalentPage implements ITab {
     public TextBox patientEmail;
 
 
-    public PatientInfoTab(WebDriver driver) {
+    public PatientInformationTab(WebDriver driver) {
         super(driver);
         dataGrid = new DataGrid(getDriver(),"//*[@id=\"Table-otherEvents\"]");
     }
@@ -125,18 +82,9 @@ public class PatientInfoTab extends AdvalentPage implements ITab {
         return pageTitle.getText();
     }
 
-    @Override
-    public String getPageTitle() {
-        return getTabName();
-    }
-
-    @Override
-    public String getDisplayedPageTitle() {
-        return getDisplayedTabTitle();
-    }
 
     @Override
     public boolean isFullyLoaded() {
-        return false;
+        return pageTitle.isDisplayed();
     }
 }

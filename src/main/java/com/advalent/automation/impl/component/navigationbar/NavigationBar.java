@@ -1,10 +1,10 @@
-package com.advalent.automation.components.navigationbar;
+package com.advalent.automation.impl.component.navigationbar;
 
 import com.advalent.automation.api.annotations.logging.LogMethodExecutionTime;
 import com.advalent.automation.api.config.ExecutionContext;
 import com.advalent.automation.api.features.IAmLandingPage;
 import com.advalent.automation.api.pages.login.ILoginPage;
-import com.advalent.automation.components.webelement.WebElements;
+import com.advalent.automation.impl.component.webelement.WebElements;
 import com.advalent.automation.impl.pages.login.Auth0LoginPage;
 import com.advalent.automation.impl.utils.WaitUtils;
 import com.advalent.automation.groovy.module.Module;

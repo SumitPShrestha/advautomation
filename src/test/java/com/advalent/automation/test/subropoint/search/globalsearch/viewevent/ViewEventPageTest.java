@@ -2,7 +2,7 @@ package com.advalent.automation.test.subropoint.search.globalsearch.viewevent;
 
 import com.advalent.automation.api.components.datagrid.IDataGrid;
 import com.advalent.automation.api.constants.TimeOuts;
-import com.advalent.automation.components.EventBanner;
+import com.advalent.automation.impl.component.EventBanner;
 import com.advalent.automation.impl.pages.search.globalsearch.EventIncidentSearchTab;
 import com.advalent.automation.impl.pages.search.globalsearch.GlobalSearchPage;
 import com.advalent.automation.impl.pages.search.globalsearch.viewevent.ViewEventPage;

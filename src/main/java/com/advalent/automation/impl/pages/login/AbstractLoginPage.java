@@ -2,7 +2,7 @@ package com.advalent.automation.impl.pages.login;
 
 import com.advalent.automation.api.annotations.LogStep;
 import com.advalent.automation.api.pages.login.ILoginPage;
-import com.advalent.automation.components.inputelements.TextBox;
+import com.advalent.automation.impl.component.inputelements.TextBox;
 import com.advalent.automation.impl.pages.common.AbstractWebComponent;
 import com.advalent.automation.selenium.SeleniumUtils;
 import org.openqa.selenium.WebDriver;

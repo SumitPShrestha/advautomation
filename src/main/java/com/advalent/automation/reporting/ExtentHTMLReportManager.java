@@ -1,5 +1,6 @@
 package com.advalent.automation.reporting;
 
+import com.advalent.automation.impl.utils.ScreenShotTaker;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
@@ -30,6 +31,7 @@ public class ExtentHTMLReportManager {
         htmlReporter.config().setReportName(REPORT_TITLE);
         extent = new ExtentReports();
         extent.attachReporter(htmlReporter);
+        ScreenShotTaker.cleanDir();
     }
 
     public static ExtentHTMLReportManager getInstance() {
@@ -64,5 +66,9 @@ public class ExtentHTMLReportManager {
 
     public void setTestToLog(ExtentTest testToLog) {
         this.testToLog = testToLog;
+    }
+
+    public static void main(String[] args) {
+        ScreenShotTaker.cleanDir();
     }
 }

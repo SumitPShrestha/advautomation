@@ -4,7 +4,7 @@ import com.advalent.automation.api.annotations.LogStep;
 import com.advalent.automation.api.components.datagrid.IDataGrid;
 import com.advalent.automation.api.components.search.ISearchPage;
 import com.advalent.automation.api.constants.TimeOuts;
-import com.advalent.automation.components.inputelements.*;
+import com.advalent.automation.impl.component.inputelements.*;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -48,7 +48,7 @@ public abstract class AbstractSearchPage extends AbstractWebComponent implements
     public IDataGrid clickOnSearchButton() {
         logger.info("clicking on search button of {} page", this.getClass());
         getSearchButton().click();
-        if (!isWarningDetailLogDisplayed()) {
+        if (!isWarningDailogDisplayed()) {
             return this.getDataGrid().waitTillDataIsLoaded(TimeOuts.THREE_SECONDS);
         } else {
             return this.getDataGrid();
@@ -72,19 +72,22 @@ public abstract class AbstractSearchPage extends AbstractWebComponent implements
     @LogStep(step = "Search ")
     public void searchBy(InputElement inputElement, String value, int waitTime) {
         if (inputElement instanceof TextBox) {
+            inputElement = new TextBox(getDriver(), inputElement.getLocator());
             inputElement.clearValue();
             inputElement.enterValue(value);
         } else if (inputElement instanceof DropDown) {
+            inputElement = new DropDown(getDriver(), inputElement.getLocator());
             inputElement.selectOption(value);
         } else if (inputElement instanceof MultipleAutoComplete) {
+            inputElement = new MultipleAutoComplete(getDriver(), inputElement.getLocator());
             inputElement.enterValue(value);
         } else if (inputElement instanceof AutoSuggest) {
+            inputElement = new AutoSuggest(getDriver(), inputElement.getLocator());
             inputElement.enterValue(value);
         }
         getSearchButton().click();
-        if(isWarningDetailLogDisplayed()){
+        if (isWarningDailogDisplayed())
             clickOnOkOfWarning();
-        }
         this.getDataGrid().waitTillDataIsLoaded(waitTime);
     }
 
@@ -101,7 +104,7 @@ public abstract class AbstractSearchPage extends AbstractWebComponent implements
 
     }
 
-    public boolean isWarningDetailLogDisplayed() {
+    public boolean isWarningDailogDisplayed() {
         try {
             return warningOkBtn.isDisplayed();
         } catch (NoSuchElementException e) {

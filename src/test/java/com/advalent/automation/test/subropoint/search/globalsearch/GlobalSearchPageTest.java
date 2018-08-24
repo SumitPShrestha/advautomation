@@ -2,12 +2,14 @@ package com.advalent.automation.test.subropoint.search.globalsearch;
 
 import com.advalent.automation.api.components.datagrid.IDataGrid;
 import com.advalent.automation.api.constants.TimeOuts;
-import com.advalent.automation.components.inputelements.InputElement;
+import com.advalent.automation.impl.component.inputelements.InputElement;
 import com.advalent.automation.impl.pages.common.AbstractSearchPage;
 import com.advalent.automation.impl.pages.search.globalsearch.EventIncidentSearchTab;
 import com.advalent.automation.impl.pages.search.globalsearch.GlobalSearchPage;
-import com.advalent.automation.reporting.ExtentHTMLReportManager;
+import com.advalent.automation.impl.pages.search.globalsearch.viewevent.memberinformation.MemberInformationTab;
 import com.advalent.automation.test.common.AbstractSearchTest;
+import com.advalent.automation.test.testinputs.DataFile;
+import com.advalent.automation.test.testinputs.TestDataReader;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -22,6 +24,10 @@ import static org.fest.assertions.Assertions.assertThat;
 
 @Test(groups = {"Global Search", "Search"}, description = "Global Search - Event/Incident Search Tab Test")
 public class GlobalSearchPageTest extends AbstractSearchTest {
+    public static final String EVENT_ID = "eventId";
+    public static final String EVENT_OWNER = "eventOwner";
+    public static final String CLIENT = "client";
+    public static final String MAJOR_CLIENT = "majorClient";
     GlobalSearchPage globalSearchPage;
 
     EventIncidentSearchTab eventIncidentSearchTab;
@@ -34,7 +40,7 @@ public class GlobalSearchPageTest extends AbstractSearchTest {
     @BeforeClass
     public void navigateToGlobalSearch() {
         super.setUp();
-//        this.inputs = TestInputReader.read(InputFileName.GLOBAL_SEARCH, "GlobalSearchPage");
+        this.inputMap = TestDataReader.read(DataFile.GLOBAL_SEARCH, "Search");
         globalSearchPage = this.navigationBar.navigateTo(GlobalSearchPage.class, TimeOuts.THIRTY_SECONDS);
         eventIncidentSearchTab = (EventIncidentSearchTab) globalSearchPage.getDefaultTab();
         searchPage = getSearchPage();
@@ -51,45 +57,35 @@ public class GlobalSearchPageTest extends AbstractSearchTest {
         assertThat(tabTitle).contains(expectedTabTitle).as("Panel Title Should Be Displayed");
     }
 
-
-    @Test(description = "Test Search By EventId functionality", priority = 3)
-    public void searchByEventId() {
-        String initialTableData = eventIncidentTabDataGrid.getTableDataAsString();
-        String dataAfterSearch = eventIncidentSearchTab.enterEventId("56824")
-                .clickOnSearchButton().getTableDataAsString();
-        ExtentHTMLReportManager.getInstance().addStep("Initial Table Data", initialTableData);
-        ExtentHTMLReportManager.getInstance().addStep("Table Data After Search", dataAfterSearch);
-        assertThat(initialTableData).isNotEqualTo(dataAfterSearch).as("Table Data Should be different after search");
-    }
-
-
-    @Test(description = "Test Search By EventOwner functionality", priority = 4)
-    public void searchByEventOwner() {
+    @Test(description = "Test That Event/Incident search tab is displayed by default", priority = 2)
+    public void testSearchByMultipleParameters() {
         eventIncidentTabDataGrid = eventIncidentSearchTab.getDataGrid();
-        String initialTableData = eventIncidentTabDataGrid.getTableDataAsString();
-        eventIncidentSearchTab.enterEventOwner("Manish")
-                .clickOnSearchButton();
-        String dataAfterSearch = eventIncidentSearchTab.clickOnOkOfWarning().getTableDataAsString();
-        ExtentHTMLReportManager.getInstance().addStep("Initial Table Data", initialTableData);
-        ExtentHTMLReportManager.getInstance().addStep("Table Data After Search", dataAfterSearch);
-        assertThat(initialTableData).isNotEqualTo(dataAfterSearch).as("Table Data Should be different after search");
-    }
-    @Test(description = "Test Search By Client Functionality", priority = 2)
-    public void searchByClient() {
-        eventIncidentTabDataGrid = eventIncidentSearchTab.getDataGrid();
-        String initialTableData = eventIncidentTabDataGrid.getTableDataAsString();
-        eventIncidentSearchTab.enterClient("Automation_Client 4")
-                .clickOnSearchButton();
-        String dataAfterSearch = eventIncidentSearchTab.clickOnOkOfWarning().getTableDataAsString();
-        ExtentHTMLReportManager.getInstance().addStep("Initial Table Data", initialTableData);
-        ExtentHTMLReportManager.getInstance().addStep("Table Data After Search", dataAfterSearch);
-        assertThat(initialTableData).isNotEqualTo(dataAfterSearch).as("Table Data Should be different after search");
+        String initialData = eventIncidentTabDataGrid.getTableDataAsString();
+        eventIncidentSearchTab.enterClient(inputMap.get("client"));
+        eventIncidentSearchTab.enterEventStatus(inputMap.get("eventStatus"));
+        eventIncidentTabDataGrid = eventIncidentSearchTab.clickOnSearchButton();
+        if (eventIncidentSearchTab.isWarningDailogDisplayed()) {
+            eventIncidentTabDataGrid = eventIncidentSearchTab.clickOnOkOfWarning();
+        }
+        String finalData = eventIncidentTabDataGrid.getTableDataAsString();
+        assertThat(finalData).isNotEqualTo(initialData);
+
     }
 
-    @Override
-    public List<InputElement> getInputElementList() {
-        return Arrays.asList(eventIncidentSearchTab.eventId, eventIncidentSearchTab.majorClient, eventIncidentSearchTab.eventOwner);
+    @Test(description = "Test That Event/Incident search tab is displayed by default", priority = 9)
+    public void testDrillToPatientInformationPage() {
+        eventIncidentSearchTab.enterEventStatus("Open").clickOnSearchButton();
+        if (eventIncidentSearchTab.isWarningDailogDisplayed()) {
+            eventIncidentTabDataGrid = eventIncidentSearchTab.clickOnOkOfWarning();
+        }
+        MemberInformationTab memberInformationPage = eventIncidentTabDataGrid.clickOnColumnOfRowExpectingPage(MemberInformationTab.class, 1, 7);
+        memberInformationPage.doWaitTillFullyLoaded(TimeOuts.FIVE_SECONDS);
+        boolean isPageDisplayed = memberInformationPage.isFullyLoaded();
+        assertThat(isPageDisplayed).isTrue();
+        globalSearchPage = this.navigationBar.navigateTo(GlobalSearchPage.class, TimeOuts.THIRTY_SECONDS);
+
     }
+
 
     @Override
     public AbstractSearchPage getSearchPage() {
@@ -97,8 +93,32 @@ public class GlobalSearchPageTest extends AbstractSearchTest {
     }
 
     @Override
+    public List<InputElement> getInputElementList() {
+        return Arrays.asList(eventIncidentSearchTab.eventId,
+                eventIncidentSearchTab.majorClient,
+                eventIncidentSearchTab.eventStatus,
+                eventIncidentSearchTab.patientFirstName,
+                eventIncidentSearchTab.patientLastName,
+                eventIncidentSearchTab.patientId,
+                eventIncidentSearchTab.patientDOB,
+                eventIncidentSearchTab.employerGroup,
+                eventIncidentSearchTab.eventOwner,
+                eventIncidentSearchTab.client);
+    }
+
+    @Override
     public List<String> getInputValueList() {
-        return Arrays.asList("56824", "United Health Group", "Manish");
+        return Arrays.asList(
+                EVENT_ID,
+                MAJOR_CLIENT,
+                "eventStatus",
+                "patientFirstName",
+                "patientLastName",
+                "patientID",
+                "patientDOB",
+                "employerGroup",
+                EVENT_OWNER,
+                CLIENT);
 
     }
 

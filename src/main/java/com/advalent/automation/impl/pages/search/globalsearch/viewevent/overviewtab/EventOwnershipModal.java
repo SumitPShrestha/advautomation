@@ -2,7 +2,7 @@ package com.advalent.automation.impl.pages.search.globalsearch.viewevent.overvie
 
 import com.advalent.automation.api.annotations.LogStep;
 import com.advalent.automation.api.annotations.inputfield.CustomElement;
-import com.advalent.automation.components.inputelements.TextBox;
+import com.advalent.automation.impl.component.inputelements.TextBox;
 import com.advalent.automation.impl.pages.common.AbstractModal;
 import com.advalent.automation.impl.pages.search.globalsearch.viewevent.discovery.ReassignEventOwnershipModal;
 import org.openqa.selenium.WebDriver;

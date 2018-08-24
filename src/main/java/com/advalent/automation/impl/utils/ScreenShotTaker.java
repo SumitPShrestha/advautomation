@@ -26,6 +26,15 @@ public class ScreenShotTaker {
         this.screenShotDirectory = screenShotsPath;
     }
 
+    public static void cleanDir() {
+        try {
+            FileUtils.cleanDirectory(new File(ReportConstants.SCREEN_SHOT_DIR));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     public void takeScreenShot(WebDriver webDriver, String fileName) {
         if (webDriver == null) {
             logger.error("Cannot take screenshot. WebDriver is null");

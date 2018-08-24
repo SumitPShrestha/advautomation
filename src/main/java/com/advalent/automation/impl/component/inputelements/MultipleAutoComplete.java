@@ -1,4 +1,4 @@
-package com.advalent.automation.components.inputelements;
+package com.advalent.automation.impl.component.inputelements;
 
 import com.advalent.automation.api.annotations.inputfield.validation.Validation;
 import com.advalent.automation.api.components.inputelements.validations.IHaveValidations;
@@ -43,7 +43,10 @@ public class MultipleAutoComplete extends InputElement implements IHaveValidatio
         this.element.findElement(By.xpath("./div[1]/ul/li/input")).sendKeys(value);
         doWaitTillFullyLoaded(TimeOuts.THREE_SECONDS);
         this.element.findElement(By.xpath("./div[2]/ul/li[contains(text(),'" + value + "')]")).click();
-        this.element.click();
+        while (isFullyLoaded()) {
+            getDriver().findElement(By.xpath("//body")).click();
+
+        }
         return this;
     }//*[@id="EventStatusList"]/div[2]/ul/li
 

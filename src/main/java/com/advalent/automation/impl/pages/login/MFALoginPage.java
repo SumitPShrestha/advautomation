@@ -5,7 +5,7 @@ import com.advalent.automation.api.dto.User;
 import com.advalent.automation.api.exceptions.AutomationException;
 import com.advalent.automation.api.pages.dashboard.IDashboardPage;
 import com.advalent.automation.api.pages.login.ILoginPage;
-import com.advalent.automation.components.inputelements.TextBox;
+import com.advalent.automation.impl.component.inputelements.TextBox;
 import com.advalent.automation.impl.pages.common.AbstractWebComponent;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

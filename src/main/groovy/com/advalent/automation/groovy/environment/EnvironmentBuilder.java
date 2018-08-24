@@ -9,8 +9,9 @@ import static org.fest.assertions.Assertions.assertThat;
 
 /**
  * Builder Class to parse environment.groovy
- *
+ * <p>
  * Will parse environment.groovy file and populate the environmentProperties map
+ *
  * @author sshrestha
  */
 class EnvironmentBuilder extends BuilderSupport {
@@ -42,8 +43,13 @@ class EnvironmentBuilder extends BuilderSupport {
         switch (name.toString()) {
             case "environments":
                 assertThat(attributes.containsKey("default")).as("default environment should be provided").isTrue();
-                defaultEnvironment = (String) attributes.get("default");
+                if (System.getProperty("environment") != null) {
+                    defaultEnvironment = System.getProperty("environment");
+                } else {
+                    defaultEnvironment = (String) attributes.get("default");
+                }
                 assertThat(defaultEnvironment).isNotNull();
+                assertThat(defaultEnvironment).isNotEmpty();
                 break;
             case "environment":
                 assertThat(attributes.containsKey("name"));

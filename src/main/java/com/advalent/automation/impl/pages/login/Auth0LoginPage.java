@@ -1,12 +1,10 @@
 package com.advalent.automation.impl.pages.login;
 
 import com.advalent.automation.api.annotations.inputfield.CustomElement;
-import com.advalent.automation.api.constants.TimeOuts;
 import com.advalent.automation.api.dto.User;
 import com.advalent.automation.api.pages.dashboard.IDashboardPage;
 import com.advalent.automation.api.pages.login.ILoginPage;
-import com.advalent.automation.components.inputelements.TextBox;
-import com.advalent.automation.components.webelement.WebElements;
+import com.advalent.automation.impl.component.inputelements.TextBox;
 import com.advalent.automation.impl.pages.dashboard.SubroPointDashboard;
 import com.advalent.automation.impl.utils.WaitUtils;
 import org.openqa.selenium.WebDriver;

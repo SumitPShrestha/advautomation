@@ -1,7 +1,7 @@
 package com.advalent.automation.impl.pages.dashboard;
 
 import com.advalent.automation.api.pages.dashboard.IDashboardPage;
-import com.advalent.automation.components.navigationbar.NavigationBar;
+import com.advalent.automation.impl.component.navigationbar.NavigationBar;
 import com.advalent.automation.impl.pages.common.AbstractWebComponent;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

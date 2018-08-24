@@ -22,6 +22,7 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.Arrays;
 
 import static com.advalent.automation.impl.utils.ReportConstants.*;
 
@@ -30,7 +31,6 @@ import static com.advalent.automation.impl.utils.ReportConstants.*;
  * author: sshrestha
  * */
 
-//*[@id="routeLoad"]
 
 /**
  * This class is used to create, initiaize and destroy the test report object.
@@ -60,6 +60,7 @@ public class TestStepsAspect {
 
     private ScreenShotTaker screenShotTaker = new ScreenShotTaker();
     private ExtentHTMLReportManager reportManager;
+    private Throwable exception;
 
     /*
      * Pointcut to method that is annotated with {@Link @LogStep}
@@ -68,15 +69,41 @@ public class TestStepsAspect {
     public void logAnnotatedStep() {
     }
 
+
+    @Before("execution(static *  org.fest.assertions.Assertions.assertThat(..))")
+    public void logAssertationAdvice(JoinPoint thisJoinPoint) {
+        System.out.println("thisJoinPoint = " + thisJoinPoint);
+    }
+
     @Before("execution(@(org.testng.annotations.BeforeSuite) * *.*(..))")
     public void beforeSuiteAdvice(JoinPoint thisJoinPoint) {
         reportManager = ExtentHTMLReportManager.getInstance();
         extent = reportManager.getExtentObject();
     }
 
+    @AfterThrowing(value = "execution(@(org.testng.annotations.BeforeSuite) * *.*(..))", throwing = "exception")
+    public synchronized void errorInBeforeSuite(JoinPoint thisJoinPoint, Throwable exception) {
+        Class testClass = thisJoinPoint.getTarget().getClass();
+        Test annotation = (Test) testClass.getAnnotation(Test.class);
+        String suiteName = getSuiteDescription(annotation, testClass);
+        suite = extent.createTest(suiteName);
+        suiteThread.set(suite);
+        reportManager.setTestToLog(suite);
+        logger.error(exception.getMessage());
+        testToLog.fail(exception.getMessage());
+        ((ExtentTest) suiteThread.get()).fail(exception.getMessage());
+        try {
+            takeScreenShot(thisJoinPoint, exception);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        extent.flush();
+    }
+
     @Before("execution(@(org.testng.annotations.AfterSuite) * *.*(..))")
     public void afterSuiteAdvice(JoinPoint thisJoinPoint) {
         testToLog = suite;
+        ExtentHTMLReportManager.getInstance().setTestToLog(testToLog);
         extent.flush();
 
         try {
@@ -91,10 +118,9 @@ public class TestStepsAspect {
 
     @Before("execution(@(org.testng.annotations.BeforeClass) * *.*(..))")
     public synchronized void beforeClassAdvice(JoinPoint thisJoinPoint) {
-        if (
-                !(isMethodCalledFromBaseTest(thisJoinPoint) && isAnnotatedMethodIsPresentInSubClass(BeforeClass.class, thisJoinPoint))
-                        || (!isMethodCalledFromBaseTest(thisJoinPoint) && isAnnotatedMethodIsPresentInSubClass(BeforeClass.class, thisJoinPoint))
-                        || (isMethodCalledFromBaseTest(thisJoinPoint) && !isAnnotatedMethodIsPresentInSubClass(BeforeClass.class, thisJoinPoint))
+        if (!(isMethodCalledFromBaseTest(thisJoinPoint) && isAnnotatedMethodIsPresentInSubClass(BeforeClass.class, thisJoinPoint))
+                || (!isMethodCalledFromBaseTest(thisJoinPoint) && isAnnotatedMethodIsPresentInSubClass(BeforeClass.class, thisJoinPoint))
+                || (isMethodCalledFromBaseTest(thisJoinPoint) && !isAnnotatedMethodIsPresentInSubClass(BeforeClass.class, thisJoinPoint))
                 ) {
             Class testClass = thisJoinPoint.getTarget().getClass();
             Test annotation = (Test) testClass.getAnnotation(Test.class);
@@ -104,7 +130,7 @@ public class TestStepsAspect {
             suite.info(" <b>" + suiteName + " started ! </b>");
             testStartTime = AspectUtils.getCurrentTime();
 
-            suite.info(" <b> Suite Name </b> =" + annotation.description());
+            suite.info(" <b> Suite Name </b> =" + annotation == null ? "" : annotation.description());
             suiteThread.set(suite);
             extent.flush();
         }
@@ -112,6 +138,7 @@ public class TestStepsAspect {
 
     @Before("execution(@(org.testng.annotations.AfterClass) * *.*(..))")
     public void afterClassAdvice(JoinPoint thisJoinPoint) {
+
         if (!(isMethodCalledFromBaseTest(thisJoinPoint) && isAnnotatedMethodIsPresentInSubClass(AfterClass.class, thisJoinPoint))
                 || (!isMethodCalledFromBaseTest(thisJoinPoint) && isAnnotatedMethodIsPresentInSubClass(AfterClass.class, thisJoinPoint))
                 || (isMethodCalledFromBaseTest(thisJoinPoint) && !isAnnotatedMethodIsPresentInSubClass(AfterClass.class, thisJoinPoint))) {
@@ -135,9 +162,15 @@ public class TestStepsAspect {
         reportManager.getTestSteps().clear();
     }
 
-    @AfterThrowing(value = "execution(@(org.testng.annotations.AfterClass) * *.*(..))", throwing = "exception")
+    @AfterThrowing(value = "execution(@(org.testng.annotations.BeforeClass) * *.*(..))", throwing = "exception")
     public synchronized void afterExceptionClass(JoinPoint thisJoinPoint, Throwable exception) {
+        exception.printStackTrace();
         ((ExtentTest) suiteThread.get()).fail(exception.getMessage());
+        try {
+            takeScreenShot(thisJoinPoint, exception);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         extent.flush();
     }
 
@@ -189,25 +222,24 @@ public class TestStepsAspect {
 
     @AfterThrowing(value = "execution(@(org.testng.annotations.Test) * *.*(..))", throwing = "exception")
     public synchronized void testAdvice(JoinPoint thisJoinPoint, Throwable exception) {
+        exception.printStackTrace();
         try {
-            if (exception instanceof SkipException)// skip
+            if (exception instanceof SkipException)/* skip*/ {
+                logger.info(exception.getMessage());
                 ((ExtentTest) testThread.get()).skip(exception.getMessage());
-            else if (!(exception instanceof SkipException) && exception != null) {//fail
-                BaseTest testClass = (BaseTest) thisJoinPoint.getTarget();
-                WebDriver webDriver = testClass.getWebDriver();
-                if (webDriver != null) {
-                    String fileName = getFileName(thisJoinPoint, exception);
-                    screenShotTaker.takeScreenShot(webDriver, fileName);
-                    ((ExtentTest) testThread.get()).addScreenCaptureFromPath(SCREEN_SHOT_FOLDER + fileName);
-                } else {
-                    logger.warn("Cannot take ScreenShot. WebDriver is Null {}", testClass.getClass().getSimpleName());
-                }
+            } else if (!(exception instanceof SkipException) && exception != null) {//fail
+                takeScreenShot(thisJoinPoint, exception);
                 if (exception instanceof NullPointerException) {
                     ((ExtentTest) testThread.get()).fail("Null Pointer Exception");
+                    Arrays.stream(exception.getStackTrace()).forEach(s -> {
+                        logger.error("Null pointer Exception in file {} class {} method {} line number {}",
+                                s.getFileName(), s.getClassName(), s.getMethodName(), s.getLineNumber());
+                    });
                     extent.flush();
 
                 } else {
-                    ((ExtentTest) testThread.get()).fail("Null Pointer Exception");
+                    logger.error(exception.getMessage());
+                    ((ExtentTest) testThread.get()).fail(exception.getMessage());
                     extent.flush();
                 }
 
@@ -215,6 +247,18 @@ public class TestStepsAspect {
             }
         } catch (Exception ex) {
             ex.printStackTrace();
+        }
+    }
+
+    private void takeScreenShot(JoinPoint thisJoinPoint, Throwable exception) throws IOException {
+        BaseTest testClass = (BaseTest) thisJoinPoint.getTarget();
+        WebDriver webDriver = testClass.getWebDriver();
+        if (webDriver != null) {
+            String fileName = getFileName(thisJoinPoint, exception);
+            screenShotTaker.takeScreenShot(webDriver, fileName);
+            ((ExtentTest) testThread.get()).addScreenCaptureFromPath(SCREEN_SHOT_FOLDER + fileName);
+        } else {
+            logger.warn("Cannot take ScreenShot. WebDriver is Null {}", testClass.getClass().getSimpleName());
         }
     }
 
@@ -245,8 +289,10 @@ public class TestStepsAspect {
         }
         if (currentCycle != null) {
             testToLog.info(step.toString());
+            logger.info(step.toString());
             extent.flush();
         } else {
+            logger.info(step.toString());
             testToLog.info(step.toString());
             extent.flush();
         }
@@ -255,11 +301,14 @@ public class TestStepsAspect {
 
     @AfterThrowing(value = "logAnnotatedStep()", throwing = "exception")
     public synchronized void errorInStepAdvice(JoinPoint thisJoinPoint, Throwable exception) {
+        exception.printStackTrace();
+        this.exception = exception;
         if (testToLog == null) {
             testToLog = (ExtentTest) (testThread.get() == null ? suiteThread.get() : testThread.get());
             reportManager.setTestToLog(testToLog);
         }
-        testToLog.fail(exception.getCause());
+        logger.error(exception.getMessage());
+        testToLog.fail(exception.getMessage());
         testToLog = null;
     }
 
@@ -283,7 +332,7 @@ public class TestStepsAspect {
 
     private String getSuiteDescription(Test annotation, Class testClass) {
 
-        if (annotation.description() == null) {
+        if (annotation == null || annotation.description() == null) {
             return testClass.getSimpleName();
         } else if (annotation.description().isEmpty()) {
             return testClass.getSimpleName();

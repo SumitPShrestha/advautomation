@@ -1,9 +1,7 @@
-package com.advalent.automation.components.webelement;
+package com.advalent.automation.impl.component.webelement;
 
 
 import com.advalent.automation.api.annotations.inputfield.CustomElement;
-import com.advalent.automation.api.config.ExecutionContext;
-import com.advalent.automation.api.config.IDriverConfiguration;
 import com.advalent.automation.selenium.DriverFactory;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;

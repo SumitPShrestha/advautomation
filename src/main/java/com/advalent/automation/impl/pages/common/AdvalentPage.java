@@ -1,8 +1,8 @@
 package com.advalent.automation.impl.pages.common;
 
 import com.advalent.automation.api.pages.common.IAdvalentPage;
-import com.advalent.automation.components.BreadCrumb;
-import com.advalent.automation.components.navigationbar.NavigationBar;
+import com.advalent.automation.impl.component.BreadCrumb;
+import com.advalent.automation.impl.component.navigationbar.NavigationBar;
 import org.openqa.selenium.WebDriver;
 
 public abstract class AdvalentPage extends AbstractWebComponent implements IAdvalentPage {

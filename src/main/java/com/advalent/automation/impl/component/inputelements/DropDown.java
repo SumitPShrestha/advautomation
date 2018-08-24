@@ -1,10 +1,9 @@
-package com.advalent.automation.components.inputelements;
+package com.advalent.automation.impl.component.inputelements;
 
 import com.advalent.automation.api.annotations.inputfield.validation.Validation;
 import com.advalent.automation.api.components.inputelements.validations.IHaveValidations;
 import com.advalent.automation.api.exceptions.AutomationException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.Select;
 
 public class DropDown extends InputElement implements IHaveValidations {
     public DropDown(WebDriver driver, String locator) {

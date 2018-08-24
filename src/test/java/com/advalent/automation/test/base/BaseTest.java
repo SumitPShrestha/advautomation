@@ -6,7 +6,7 @@ import com.advalent.automation.api.config.ExecutionContext;
 import com.advalent.automation.api.constants.TimeOuts;
 import com.advalent.automation.api.dto.User;
 import com.advalent.automation.api.pages.dashboard.IDashboardPage;
-import com.advalent.automation.components.navigationbar.NavigationBar;
+import com.advalent.automation.impl.component.navigationbar.NavigationBar;
 import com.advalent.automation.impl.pages.common.AdvalentApp;
 import com.advalent.automation.selenium.DriverFactory;
 import com.google.common.base.Preconditions;
@@ -32,7 +32,7 @@ public abstract class BaseTest {
     protected WebDriver webDriver;
     protected AdvalentApp app;
     protected NavigationBar navigationBar;
-    protected Map<String, String> inputs = null;
+    protected Map<String, String> inputMap = null;
 
     public BaseTest() {
         context = ExecutionContext.forEnvironment(System.getProperty("environment"));

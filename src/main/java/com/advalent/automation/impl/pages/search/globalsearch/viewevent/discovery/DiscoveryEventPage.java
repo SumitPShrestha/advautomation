@@ -4,9 +4,8 @@ import com.advalent.automation.api.annotations.LogStep;
 import com.advalent.automation.api.annotations.inputfield.CustomElement;
 import com.advalent.automation.api.components.tab.ITab;
 import com.advalent.automation.api.components.tab.ITabPanel;
-import com.advalent.automation.components.inputelements.DropDown;
-import com.advalent.automation.components.inputelements.TextBox;
-import com.advalent.automation.impl.component.Tabs;
+import com.advalent.automation.impl.component.inputelements.DropDown;
+import com.advalent.automation.impl.component.inputelements.TextBox;
 import com.advalent.automation.impl.pages.common.AdvalentPage;
 import com.advalent.automation.impl.pages.search.globalsearch.viewevent.ViewEventPage;
 import org.openqa.selenium.WebDriver;
@@ -14,9 +13,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class DiscoveryEventPage extends AdvalentPage implements ITabPanel {
     @FindBy(xpath = "//*[@id=\"content\"]/div[3]/div/form/div[2]/div[1]/ng-form/div/div[1]")
@@ -99,16 +96,9 @@ public class DiscoveryEventPage extends AdvalentPage implements ITabPanel {
         return pageTitle.isDisplayed();
     }
 
-    @Override
-    public List<String> getAvailableTabs() {
-        return Arrays.asList(DiscoveryInvestigationTab.class)
-                .stream().map(clazz -> PageFactory.initElements(getDriver(), clazz).getTabName())
-                .collect(Collectors.toList());
-    }
 
     @Override
-    public <T extends ITab> T clickOnTab(Tabs tab) {
-//        T tab = PageFactory.initElements(getDriver(), tabClass);
+    public List<String> getAvailableTabs() {
         return null;
     }
 

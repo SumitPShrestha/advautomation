@@ -18,17 +18,19 @@ public class TaskTab extends AdvalentPage implements ITab {
     @FindBy(xpath = "//*[@id=\"addnewTask\"]")
     public WebElement addNewTaskBtn;
 
+    TaskNotePanel taskNotePanel;
+
     IDataGrid taskDataGrid;
 
     @LogStep(step = "Clicking on Add New Task Button")
-    public TaskSection clickOnAddNewTaskBtn(){
+    public TaskNotePanel clickOnAddNewTaskBtn() {
         addNewTaskBtn.click();
-        return new TaskSection(getDriver());
+        return new TaskNotePanel(getDriver());
     }
 
     public TaskTab(WebDriver driver) {
         super(driver);
-        taskDataGrid = new DataGrid(getDriver(),"//*[@id=\"Table-task\"]");
+        taskDataGrid = new DataGrid(getDriver(), "//*[@id=\"Table-task\"]");
         PageFactory.initElements(getDriver(), this);
     }
 
@@ -54,6 +56,16 @@ public class TaskTab extends AdvalentPage implements ITab {
 
     @Override
     public boolean isFullyLoaded() {
-        return false;
+        return this.pageTitle.isDisplayed();
     }
+
+    public boolean isAddNewTaskButtonAvailable() {
+        return addNewTaskBtn.isDisplayed();
+
+    }
+
+    public IDataGrid getDataGrid() {
+        return taskDataGrid;
+    }
+
 }

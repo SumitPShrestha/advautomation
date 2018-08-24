@@ -1,19 +1,17 @@
-package com.advalent.automation.impl.pages.search.globalsearch.viewevent.policyholdeinfo;
+package com.advalent.automation.impl.pages.search.globalsearch.viewevent.memberinformation.policyholdeinfo;
 
 import com.advalent.automation.api.annotations.inputfield.CustomElement;
 import com.advalent.automation.api.components.datagrid.IDataGrid;
 import com.advalent.automation.api.components.tab.ITab;
-import com.advalent.automation.components.inputelements.AutoSuggest;
-import com.advalent.automation.components.inputelements.DropDown;
-import com.advalent.automation.components.inputelements.TextBox;
+import com.advalent.automation.impl.component.inputelements.AutoSuggest;
+import com.advalent.automation.impl.component.inputelements.DropDown;
+import com.advalent.automation.impl.component.inputelements.TextBox;
 import com.advalent.automation.impl.component.datagrid.DataGrid;
 import com.advalent.automation.impl.pages.common.AdvalentPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-import java.awt.dnd.Autoscroll;
 
 public class PolicyHolderInfoTab extends AdvalentPage implements ITab {
     IDataGrid eventCaseDataGrid;

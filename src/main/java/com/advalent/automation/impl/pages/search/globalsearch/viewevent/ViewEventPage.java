@@ -4,9 +4,8 @@ import com.advalent.automation.api.annotations.LogStep;
 import com.advalent.automation.api.annotations.inputfield.CustomElement;
 import com.advalent.automation.api.components.tab.ITab;
 import com.advalent.automation.api.components.tab.ITabPanel;
-import com.advalent.automation.components.EventBanner;
-import com.advalent.automation.components.inputelements.DropDown;
-import com.advalent.automation.impl.component.Tabs;
+import com.advalent.automation.impl.component.EventBanner;
+import com.advalent.automation.impl.component.inputelements.DropDown;
 import com.advalent.automation.impl.pages.common.AdvalentPage;
 import com.advalent.automation.impl.pages.search.globalsearch.viewevent.discovery.DiscoveryEventPage;
 import com.advalent.automation.impl.pages.search.globalsearch.viewevent.discovery.DiscoveryInvestigationTab;
@@ -77,12 +76,6 @@ public class ViewEventPage extends AdvalentPage implements ITabPanel {
         ).collect(Collectors.toList());
     }
 
-    @Override
-    public <T extends ITab> T clickOnTab(Tabs tab) {
-        getDriver().findElement(By.id(tab.getTabName())).click();
-        Class<T> tabClass = tab.getTabClass();
-        return PageFactory.initElements(getDriver(), tabClass);
-    }
 
     @Override
     public <T extends ITab> ITab getTab(Class<T> tabClass) {

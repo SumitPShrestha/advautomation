@@ -15,7 +15,7 @@
         <jdk.version>1.7</jdk.version>
         <maven-compiler.version>2.3.2</maven-compiler.version>
         <suiteDir>suites</suiteDir>
-        <suite>scrumqa-testng.xml</suite>
+        <suite>subro-point-suite.xml</suite>
         <aspectj.version>1.8.5</aspectj.version>
         <allure.version>1.4.0</allure.version>
         <testng.version>6.9.4</testng.version>

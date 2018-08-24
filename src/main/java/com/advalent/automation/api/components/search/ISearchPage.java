@@ -1,7 +1,7 @@
 package com.advalent.automation.api.components.search;
 
 import com.advalent.automation.api.components.datagrid.IDataGrid;
-import com.advalent.automation.components.inputelements.InputElement;
+import com.advalent.automation.impl.component.inputelements.InputElement;
 
 public interface ISearchPage {
 

@@ -2,8 +2,8 @@ package com.advalent.automation.impl.pages.search.globalsearch.viewevent.discove
 
 import com.advalent.automation.api.annotations.LogStep;
 import com.advalent.automation.api.annotations.inputfield.CustomElement;
-import com.advalent.automation.components.inputelements.DropDown;
-import com.advalent.automation.components.inputelements.TextBox;
+import com.advalent.automation.impl.component.inputelements.DropDown;
+import com.advalent.automation.impl.component.inputelements.TextBox;
 import com.advalent.automation.impl.pages.common.AbstractModal;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

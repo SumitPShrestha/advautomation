@@ -1,8 +1,8 @@
 package com.advalent.automation.api.pages.common;
 
 import com.advalent.automation.api.features.IAmWebComponent;
-import com.advalent.automation.components.BreadCrumb;
-import com.advalent.automation.components.navigationbar.NavigationBar;
+import com.advalent.automation.impl.component.BreadCrumb;
+import com.advalent.automation.impl.component.navigationbar.NavigationBar;
 
 public interface IAdvalentPage extends IAmWebComponent {
     NavigationBar getNavigationBar();

@@ -2,14 +2,10 @@ package com.advalent.automation.impl.pages.search.globalsearch.viewevent.externa
 
 import com.advalent.automation.api.annotations.LogStep;
 import com.advalent.automation.api.annotations.inputfield.CustomElement;
-import com.advalent.automation.api.components.datagrid.IDataGrid;
-import com.advalent.automation.components.inputelements.DropDown;
-import com.advalent.automation.components.inputelements.TextBox;
-import com.advalent.automation.impl.component.datagrid.DataGrid;
+import com.advalent.automation.impl.component.inputelements.DropDown;
+import com.advalent.automation.impl.component.inputelements.TextBox;
 import com.advalent.automation.impl.component.datagrid.DataGridWithCheckBox;
 import com.advalent.automation.impl.pages.common.AbstractWebComponent;
-import com.advalent.automation.selenium.SeleniumUtils;
-import groovy.util.logging.Log;
 import javafx.scene.control.CheckBox;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotVisibleException;

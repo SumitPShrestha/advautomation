@@ -1,9 +1,10 @@
-page(name: 'Global Search') {
-    environment(name: 'SIT') {
-        section('Search') {
+page(name: 'Global Search') {// Page Name to provide test data
+    environment(name: 'SIT') {// environment or stage
+        section('Search') {// section
             eventId '56824'
             incidentId 'REF000022'
             eventStatus 'Open'
+            eventOwner 'Manish'
             patientFirstName 'Jonas'
             patientLastName 'Smith'
             patientID 'PID12399'
@@ -14,7 +15,7 @@ page(name: 'Global Search') {
             employerGroup 'Test C01BG01 EG 01'
         }
         section('Add') {
-            Incident_ReferralFrom ''
+//            Incident_ReferralFrom ''
         }
     }
     environment(name: 'PROD_QA') {

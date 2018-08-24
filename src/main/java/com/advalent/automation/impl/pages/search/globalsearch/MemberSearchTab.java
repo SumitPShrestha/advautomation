@@ -1,7 +1,7 @@
 package com.advalent.automation.impl.pages.search.globalsearch;
 
 import com.advalent.automation.api.components.tab.ITab;
-import com.advalent.automation.components.webelement.WebElements;
+import com.advalent.automation.impl.component.webelement.WebElements;
 import com.advalent.automation.impl.pages.common.AbstractWebComponent;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

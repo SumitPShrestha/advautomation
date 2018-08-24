@@ -2,15 +2,19 @@ package com.advalent.automation.impl.pages.search.globalsearch.viewevent.tasksta
 
 import com.advalent.automation.api.annotations.LogStep;
 import com.advalent.automation.api.annotations.inputfield.CustomElement;
-import com.advalent.automation.components.inputelements.DropDown;
-import com.advalent.automation.components.inputelements.TextBox;
+import com.advalent.automation.api.constants.TimeOuts;
+import com.advalent.automation.impl.component.inputelements.AutoSuggest;
+import com.advalent.automation.impl.component.inputelements.CheckBox;
+import com.advalent.automation.impl.component.inputelements.DropDown;
+import com.advalent.automation.impl.component.inputelements.TextBox;
 import com.advalent.automation.impl.pages.common.AbstractWebComponent;
-import javafx.scene.control.CheckBox;
+import org.jboss.netty.util.Timeout;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
-public class TaskSection extends AbstractWebComponent{
+public class TaskNotePanel extends AbstractWebComponent {
 
     @FindBy(xpath = "//*[@id=\"content\"]/div[3]/div/form/div[2]/div[1]/div/div/div/div[2]/div/div/div/span/dtasks/div/div/div[1]/h3")
     WebElement pageTitle;
@@ -35,7 +39,7 @@ public class TaskSection extends AbstractWebComponent{
 
     //autosuggest
     @CustomElement(xpath = "//*[@id=\"UserName\"]")
-    public TextBox assignedToUser;
+    public AutoSuggest assignedToUser;
 
     @CustomElement(xpath = "//*[@id=\"AssignedByUserName\"]")
     public TextBox assignedBy;
@@ -53,67 +57,99 @@ public class TaskSection extends AbstractWebComponent{
     @CustomElement(xpath = "//*[@id=\"TaskNote\"]")
     public TextBox notes;
 
-
-    public TaskSection(WebDriver driver) {
+    TaskTabNoteTabPanel taskTabNoteTabPanel;
+    public TaskNotePanel(WebDriver driver) {
         super(driver);
+        PageFactory.initElements(driver, this);
+        taskTabNoteTabPanel = new TaskTabNoteTabPanel(driver);
     }
 
     @LogStep(step = "Clicking on Complete Task Button")
-    public TaskTab clickOnCompleteTaskBtn(){
+    public TaskTab clickOnCompleteTaskBtn() {
         completeTaskBtn.click();
         return new TaskTab(getDriver());
     }
 
     @LogStep(step = "Clicking on Save Task Button")
-    public TaskTab clickOnSaveTaskBtn(){
+    public TaskTab clickOnSaveTaskBtn() {
         saveTaskBtn.click();
+        doWaitTillFullyLoaded(TimeOuts.FIVE_SECONDS);
         return new TaskTab(getDriver());
     }
 
     @LogStep(step = "Clicking on Exit Button")
-    public TaskTab clickOnExitBtn(){
+    public TaskTab clickOnExitBtn() {
         exitBtn.click();
         return new TaskTab(getDriver());
     }
 
     @LogStep(step = "Entering user for a task")
-    public TaskSection enterUserForTask(String userName) {
+    public TaskNotePanel enterUserForTask(String userName) {
         assignedToUser.enterValue(userName);
         return this;
     }
 
     @LogStep(step = "Entering due date for a task")
-    public TaskSection enterDueDateTask(String dueDate) {
+    public TaskNotePanel enterDueDateTask(String dueDate) {
         assignedToUser.enterValue(dueDate);
         return this;
     }
 
     @LogStep(step = "Toggling High Priority")
-    public TaskSection toggleHighPriority() {
-        highPriority.fire();
+    public TaskNotePanel toggleHighPriority() {
+        highPriority.check();
         return this;
     }
 
     @LogStep(step = "Selecting task type for a task")
-    public TaskSection selectTaskType(String taskType) {
+    public TaskNotePanel selectTaskType(String taskType) {
         this.taskType.selectOption(taskType);
         return this;
     }
 
     @LogStep(step = "Adding description for a task")
-    public TaskSection addDescription(String description) {
+    public TaskNotePanel addDescription(String description) {
         this.description.enterValue(description);
         return this;
     }
 
     @LogStep(step = "Adding description for a task")
-    public TaskSection addNotes(String notes) {
+    public TaskNotePanel addNotes(String notes) {
         this.notes.enterValue(notes);
         return this;
     }
 
     @Override
     public boolean isFullyLoaded() {
-        return false;
+        return this.pageTitle.isDisplayed();
     }
+
+    public String getPanelTitle() {
+        return this.pageTitle.getText();
+    }
+
+    @LogStep(step = "Adding task type")
+    public TaskNotePanel enterTaskType(String assignedToUser) {
+        taskType.selectOption(assignedToUser);
+        return this;
+    }
+
+    @LogStep(step = "Adding description")
+    public TaskNotePanel enterDescription(String description) {
+        this.description.clearValue();
+        this.description.enterValue(description);
+        return this;
+    }
+
+    @LogStep(step = "Adding note")
+    public TaskNotePanel enterNote(String note) {
+        this.notes.clearValue();
+        this.notes.enterValue(note);
+        return this;
+    }
+
+    public TaskTabNoteTabPanel getNoteTabPanel() {
+        return taskTabNoteTabPanel;
+    }
+
 }
